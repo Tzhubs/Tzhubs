@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/TzHub/main/tzhub.lua"))()
