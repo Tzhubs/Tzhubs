@@ -1,1 +1,49 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/TzHub/main/tzhub.lua"))()
+-- URL do script que você deseja carregar
+local url = "https://raw.githubusercontent.com/Xero2409/TzHub/main/tzhub.lua"
+
+-- Faz uma solicitação HTTP GET para a URL e armazena a resposta
+local response = game:HttpGet(url)
+
+-- Verifica se a resposta não está vazia
+if response and response ~= "" then
+    -- Converte a resposta em uma função Lua e a executa
+    local success, err = pcall(function()
+        loadstring(response)()
+    end)
+
+    -- Verifica se houve algum erro durante a execução do script
+    if not success then
+        warn("Erro ao executar o script: " .. err)
+    else
+        print("Script carregado e executado com sucesso!")
+    end
+else
+    warn("Falha ao carregar o script da URL fornecida.")
+end
+
+-- Função Auto Farm para Níveis
+local function autoFarmLevels(targetLevel)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    while player.Level < targetLevel do
+        -- Adicione aqui o código para a tarefa de farm de nível
+        -- Exemplo: Derrotar inimigos, completar missões, etc.
+        print("Farmando nível... Nível atual: " .. player.Level)
+
+        -- Simulação de aumento de nível (substitua isso pelo código real de farm)
+        player.Level = player.Level + 1
+
+        -- Aguarda um tempo antes de repetir a tarefa
+        wait(5)  -- Ajuste o tempo conforme necessário
+    end
+
+    print("Nível alvo alcançado: " .. targetLevel)
+end
+
+-- Inicia a função Auto Farm para Níveis até o nível 2560
+local targetLevel = 2560
+local autoFarmThread = coroutine.create(function() autoFarmLevels(targetLevel) end)
+coroutine.resume(autoFarmThread)
