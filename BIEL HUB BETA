@@ -1,0 +1,118 @@
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+local Window = OrionLib:MakeWindow({Name = "BIEL HUB ", HidePremium = false, SaveConfig = true, ConfigFolder = "BloxFruitsConfig"})
+
+local Tab = Window:MakeTab({Name = "Main", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section = Tab:AddSection({Name = "Auto Farm"})
+
+Section:AddButton({
+    Name = "autoFarmActive",
+    Callback = function()
+        print("Auto Farm iniciado")
+        -- local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local function autoFarm()
+    while true do
+        wait(1) -- Intervalo entre as ações
+
+        -- Encontre o inimigo mais próximo
+        local closestEnemy
+        local shortestDistance = math.huge
+        for _, enemy in pairs(game.Workspace.Enemies:GetChildren()) do
+            if enemy:FindFirstChild("HumanoidRootPart") then
+                local distance = (enemy.HumanoidRootPart.Position - humanoidRootPart.Position).magnitude
+                if distance < shortestDistance then
+                    closestEnemy = enemy
+                    shortestDistance = distance
+                end
+            end
+        end
+
+        -- Mova-se para o inimigo mais próximo e ataque
+        if closestEnemy then
+            humanoidRootPart.CFrame = closestEnemy.HumanoidRootPart.CFrame
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local tool = character:FindFirstChildOfClass("Tool")
+
+--
+function attack()
+    if tool and tool:FindFirstChild("RemoteEvent") then
+        tool.RemoteEvent:FireServer("Attack")
+    end
+end
+
+-- Loop de ataque
+while true do
+    attack()
+    wait(0.5)
+end
+
+        end
+    end
+end
+
+-- Inicie o Auto Farm
+autoFarm()
+
+    end
+})
+
+Section:AddButton({
+    Name = "Stop Auto Farm",
+    Callback = function()
+        print("Auto Farm parado")
+        -- local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local autoFarmActive = true
+
+local function autoFarm()
+    while autoFarmActive do
+        wait(1) -- Intervalo entre as ações
+
+        -- Encontre o inimigo mais próximo
+        local closestEnemy
+        local shortestDistance = math.huge
+        for _, enemy in pairs(game.Workspace.Enemies:GetChildren()) do
+            if enemy:FindFirstChild("HumanoidRootPart") then
+                local distance = (enemy.HumanoidRootPart.Position - humanoidRootPart.Position).magnitude
+                if distance < shortestDistance then
+                    closestEnemy = enemy
+                    shortestDistance = distance
+                end
+            end
+        end
+
+        
+        if closestEnemy then
+            humanoidRootPart.CFrame = closestEnemy.HumanoidRootPart.CFrame
+            -- Adicione o código de ataque aqui
+        end
+    end
+end
+
+local function stopAutoFarm()
+    autoFarmActive = false
+    print("Auto Farm parado")
+end
+
+-- Inicie o Auto Farm
+autoFarm()
+
+-- Para parar o Auto Farm, chame a função stopAutoFarm
+-- stopAutoFarm()
+
+    end
+})
+
+OrionLib:MakeNotification({
+    Name = "Script Carregado",
+    Content = "O script para Blox Fruits foi carregado com sucesso!",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
