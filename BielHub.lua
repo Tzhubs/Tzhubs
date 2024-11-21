@@ -43,7 +43,7 @@ local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "Prot
                                         },
                                         {
                                             ["name"]= "𝙎𝙘𝙧𝙞𝙥𝙩 𝙎𝙩𝙖𝙩𝙪𝙨ℹ️",
-                                            ["value"]= "```Người dùng đã chạy script Biel hub Auto Farm Cảm Ơn Vì Đã Dùng RinX!!!!```",
+                                            ["value"]= "```Người dùng đã chạy script Nome Do Seu Hub Auto Farm Cảm Ơn Vì Đã Dùng RinX!!!!```",
                                             ["inline"]= true
                                             },
                                        {
@@ -72,7 +72,7 @@ local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shl
 
 local Window = Fluent:CreateWindow({
     Title = " Biel  Hub | Blox Fruits",
-    SubTitle = "Version Beta 1.0    by Tz dev",
+    SubTitle = "Version Beta 1.0       by Tz dev",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
@@ -80,16 +80,16 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88147973848189" }),
-    Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://88147973848189" }),
-    Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://88147973848189" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://88147973848189" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://88147973848189" }),
-    Fruit = Window:AddTab({ Title = "Fruit", Icon = "rbxassetid://88147973848189" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "rbxassetid://88147973848189" }),
-    Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://88147973848189" }),
-    Shop = Window:AddTab({ Title = "Shop", Icon = "rbxassetid://88147973848189" }),
-	Misc = Window:AddTab({ Title = "Misc", Icon = "rbxassetid://88147973848189" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://77579039290704" }),
+    Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://77579039290704" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://77579039290704" }),
+    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://77579039290704" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://77579039290704" }),
+    Fruit = Window:AddTab({ Title = "Fruit", Icon = "rbxassetid://77579039290704" }),
+    Raid = Window:AddTab({ Title = "Raid", Icon = "rbxassetid://77579039290704" }),
+    Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://77579039290704" }),
+    Shop = Window:AddTab({ Title = "Shop", Icon = "rbxassetid://77579039290704" }),
+	Misc = Window:AddTab({ Title = "Misc", Icon = "rbxassetid://77579039290704" }),
 }
 local Options = Fluent.Options
 do
@@ -97,7 +97,7 @@ OrionLib:MakeNotification(
         {
             Name = "Notification",
             Content = "Please Wait For Loading Code",
-            Image = "rbxassetid://88147973848189",
+            Image = "rbxassetid://77579039290704",
             Time = 7
         }
     )
@@ -138,7 +138,7 @@ OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(...)
 			StarterGui:SetCore("SendNotification", {
 				Title = "Biel Hub",
 				Text = "The script has successfully intercepted an attempted kick.",
-				Icon = "rbxassetid://88147973848189",
+				Icon = "rbxassetid://77579039290704",
 				Duration = 2,
 			})
 		end
@@ -153,7 +153,7 @@ if getgenv().ED_AntiKick.SendNotifications then
 	StarterGui:SetCore("SendNotification", {
 		Title = "Biel Hub",
 		Text = "Anti-Kick script loaded!",
-		Icon = "rbxassetid://88147973848189",
+		Icon = "rbxassetid://77579039290704",
 		Duration = 3,
 	})
 end
@@ -2656,7 +2656,7 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=88147973848189"
+ImageButton.Image = "http://www.roblox.com/asset/?id=77579039290704"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 end)
@@ -2722,10 +2722,10 @@ end
 
 
 Tabs.Main:AddButton({
-        Title = "Nome Do Seu Hub Discord Server",
+        Title = "Biel Hub Discord Server",
         Description = "Very important",
         Callback = function()
-        setclipboard("Discord de vocês")
+        setclipboard("https://discord.gg/CQFsSgdDYs")
         end
         })
 local Farming = Tabs.Main:AddSection("Farming")
@@ -2746,7 +2746,7 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
 		_G.Fast_Delay = 2
 	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0.0005
+		_G.Fast_Delay = 0.0002
 	end
 end)
 
@@ -7526,7 +7526,7 @@ OrionLib:MakeNotification(
     {
         Name = "Notification",
         Content = "Done Loading Code You Can Use Script Now",
-        Image = "rbxassetid://88147973848189",
+        Image = "rbxassetid://77579039290704",
         Time = 5
     }
 )
