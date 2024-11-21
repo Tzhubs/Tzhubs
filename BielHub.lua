@@ -43,7 +43,7 @@ local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "Prot
                                         },
                                         {
                                             ["name"]= "𝙎𝙘𝙧𝙞𝙥𝙩 𝙎𝙩𝙖𝙩𝙪𝙨ℹ️",
-                                            ["value"]= "```Người dùng đã chạy script Nome Do Seu Hub Auto Farm Cảm Ơn Vì Đã Dùng RinX!!!!```",
+                                            ["value"]= "```Người dùng đã chạy script Biel hub Auto Farm Cảm Ơn Vì Đã Dùng RinX!!!!```",
                                             ["inline"]= true
                                             },
                                        {
@@ -72,7 +72,7 @@ local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shl
 
 local Window = Fluent:CreateWindow({
     Title = " Biel  Hub | Blox Fruits",
-    SubTitle = "Version Beta 1.0",
+    SubTitle = "Version Beta 1.0    by Tz dev",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
