@@ -1,18 +1,3 @@
-function encrypt(text, shift)
-    local result = ""
-    for i = 1, #text do
-        local char = text:sub(i, i)
-        local byte = string.byte(char)
-        result = result .. string.char(byte + shift)
-    end
-    return result
-end
-
-local script = "print('404 not found!')"
-local encrypted_script = encrypt(script, 3)
-local file = io.open("encrypted_Biel_Hub.lua", "w")
-file:write(encrypted_script)
-file:close()
 
 local exploit = getexecutorname or identifyexecutor
 local support = {
@@ -2739,7 +2724,7 @@ end
 
 Tabs.Main:AddButton({
         Title = "Biel Hub Discord Server",
-        Description = "Very important",
+        Description = "https://discord.gg/CQFsSgdDYs",
         Callback = function()
         setclipboard("https://discord.gg/CQFsSgdDYs")
         end
@@ -2761,8 +2746,8 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 		_G.Fast_Delay = 0.029
 	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
 		_G.Fast_Delay = 2
-	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0.0002
+	elseif _G.FastAttackFaiFao_Mode == "God Fast Attack" then
+		_G.Fast_Delay = 0.000001
 	end
 end)
 
