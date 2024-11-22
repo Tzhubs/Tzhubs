@@ -1,3 +1,20 @@
+function encrypt(text, shift)
+    local result = ""
+    for i = 1, #text do
+        local char = text:sub(i, i)
+        local byte = string.byte(char)
+        result = result .. string.char(byte + shift)
+    end
+    return result
+end
+
+local script = "print('Hello broder!')"
+local encrypted_script = encrypt(script, 3)
+local file = io.open("encrypted_script.lua", "w")
+file:write(encrypted_script)
+file:close()
+end
+
 local exploit = getexecutorname or identifyexecutor
 local support = {
     ["Fluxus"] = true,
@@ -2203,7 +2220,7 @@ end
                     wait(.1)
                     Com("F_", "TeleportToSpawn")
                 elseif game:GetService("Players")["LocalPlayer"].Data:FindFirstChild("LastSpawnPoint").Value == tostring(GetIsLand(RealTarget)) then
-                    game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(10)
                     wait(0.1)
                     repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0
                 else
