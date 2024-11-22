@@ -8,12 +8,11 @@ function encrypt(text, shift)
     return result
 end
 
-local script = "print('Hello broder!')"
+local script = "print('404 not found!')"
 local encrypted_script = encrypt(script, 3)
-local file = io.open("encrypted_script.lua", "w")
+local file = io.open("encrypted_Biel_Hub.lua", "w")
 file:write(encrypted_script)
 file:close()
-end
 
 local exploit = getexecutorname or identifyexecutor
 local support = {
