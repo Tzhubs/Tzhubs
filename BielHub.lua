@@ -81,7 +81,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://77579039290704" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://124961221558449" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://77579039290704" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://77579039290704" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://77579039290704" }),
@@ -97,7 +97,7 @@ do
 OrionLib:MakeNotification(
         {
             Name = "Notification",
-            Content = "Please Wait For Loading Code",
+            Content = "Biel Hub executed sucess",
             Image = "rbxassetid://77579039290704",
             Time = 7
         }
@@ -2747,7 +2747,7 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
 		_G.Fast_Delay = 2
 	elseif _G.FastAttackFaiFao_Mode == "God Fast Attack" then
-		_G.Fast_Delay = 0.000001
+		_G.Fast_Delay = 0.000.
 	end
 end)
 
