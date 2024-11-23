@@ -29,7 +29,7 @@ local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "Prot
                                     ["url"]= "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId;
                                     ["description"]= "||```"..game.Players.LocalPlayer.DisplayName.." ("..game.Players.LocalPlayer.Name..")```||";
                                     ["color"]= tonumber(0x7269da);
-                                     ["thumbnail"] = {["url"] = "https://cdn.discordapp.com/attachments/1171840145335537824/1201725336598106183/Screenshot_2024-01-28-16-39-42-226_com.facebook.katana-edit.jpg?ex=65cadcef&is=65b867ef&hm=850789c6f502230b1eaa6ffed401f83a8c7d3a5ffea10e13ef382b3806a80615&"};
+                                     ["thumbnail"] = {["url"] = "https://cdn.discordapp.com/attachments/1309138822495207480/1309922398568579072/noFilter.webp?ex=674357cd&is=6742064d&hm=f027d8d4bb4fb32b31cdcd47777b59ea075eee9e6deef6d1e5c62d22675ecc27&"};
                                     
                                     ["fields"]= {
                                         {
@@ -81,7 +81,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://124961221558449" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://77579039290704" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://77579039290704" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://77579039290704" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://77579039290704" }),
