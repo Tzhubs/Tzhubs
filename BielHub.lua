@@ -80,7 +80,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88147973848189" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88928557832575" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://88147973848189" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://88147973848189" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://88147973848189" }),
