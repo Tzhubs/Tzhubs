@@ -2656,7 +2656,7 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=88147973848189"
+ImageButton.Image = "http://www.roblox.com/asset/?id=88928557832575"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 end)
@@ -2746,7 +2746,7 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
 		_G.Fast_Delay = 2
 	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0.001
+		_G.Fast_Delay = 0.0001
 	end
 end)
 
