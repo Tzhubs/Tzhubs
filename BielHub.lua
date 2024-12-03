@@ -80,7 +80,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88928557832575" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88147973848189" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://88147973848189" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://88147973848189" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://88147973848189" }),
@@ -2729,41 +2729,35 @@ Tabs.Main:AddButton({
         end
         })
 local Farming = Tabs.Main:AddSection("Farming")
-local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
+local AttackList = {"Fast Attack", "Normal Attack", "Super Fast Attack"}
 
-    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
-        Title = "Select Fast Attack",
-        Description = "",
-        Values = FastAttack,
+    local Dropdown = Tabs.Settings:AddDropdown("Dropdown", {
+        Title = "Fast Attack Speed",
+        Values = {"Fast Attack", "Normal Attack", "Super Fast Attack"},
         Multi = false,
         Default = 1,
     })
-    DropdownDelayAttack:SetValue("Super Fast Attack")
-    DropdownDelayAttack:OnChanged(function(Value)
-    _G.FastAttackFaiFao_Mode = Value
-	if _G.FastAttackFaiFao_Mode == "Fast Attack" then
-		_G.Fast_Delay = 0.001
-	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
-		_G.Fast_Delay = 2
-	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0.001
-	end
-end)
 
-local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
+    Dropdown:SetValue("0.8")
 
-TurnFastAttack:OnChanged(function(value)
-    _G.FastAttack = value
-end)
+    Dropdown:OnChanged(function(Value)
+        _G.FastAttackDelay = Value
+    end)
 
-task.spawn(function()
-	pcall(function()
-	while task.wait(_G.Fast_Delay) do
-		if FastAttack and _G.FastAttack then
-			AttackFunction()
-		   end
-		end
-	end)
+spawn(function()
+    while wait(.1) do
+        if _G.FastAttackDelay then
+            pcall(function()
+                if _G.FastAttackDelay == "Suoer Fast Attack" then
+                    _G.FastAttackDelay = 0.6
+                elseif _G.FastAttackDelay == "Fast Attack" then
+                    _G.FastAttackDelay = 0.8
+                elseif _G.FastAttackDelay == "Normal Attack" then
+                    _G.FastAttackDelay = 1
+                end
+            end)
+        end
+    end
 end)
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
