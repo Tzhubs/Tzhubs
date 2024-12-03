@@ -96,7 +96,7 @@ do
 OrionLib:MakeNotification(
         {
             Name = "Notification",
-            Content = "Please Wait For Loading Biel Hu",
+            Content = "Please Wait For Loading Biel hub",
             Image = "rbxassetid://88147973848189",
             Time = 7
         }
@@ -2742,11 +2742,11 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
     DropdownDelayAttack:OnChanged(function(Value)
     _G.FastAttackFaiFao_Mode = Value
 	if _G.FastAttackFaiFao_Mode == "Fast Attack" then
-		_G.Fast_Delay = 0.001ms
+		_G.Fast_Delay = 0.001
 	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
 		_G.Fast_Delay = 2
 	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0.001ns
+		_G.Fast_Delay = 0.001
 	end
 end)
 
@@ -2880,7 +2880,7 @@ end)
 
 
 
-        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Max Level ",Description = "", Default = false })
+        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Candy ( Only Max Level ) ",Description = "", Default = false })
         ToggleCandy:OnChanged(function(Value)
            _G.AutoCandy = Value
            if Value == false then
