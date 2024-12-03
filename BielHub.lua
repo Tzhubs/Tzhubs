@@ -76,7 +76,7 @@ local Window = Fluent:CreateWindow({
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
-    Theme = "whiter ",
+    Theme = "Light ",
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
@@ -2742,11 +2742,11 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
     DropdownDelayAttack:OnChanged(function(Value)
     _G.FastAttackFaiFao_Mode = Value
 	if _G.FastAttackFaiFao_Mode == "Fast Attack" then
-		_G.Fast_Delay = 0.029
+		_G.Fast_Delay = 0.001ms
 	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
 		_G.Fast_Delay = 2
 	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = 0.0001
+		_G.Fast_Delay = 0.001ns
 	end
 end)
 
@@ -2818,7 +2818,7 @@ end)
 
 
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {
-        Title = "Auto Level",
+        Title = "Auto Farm Level",
         Description = "",
         Default = false })
     ToggleLevel:OnChanged(function(Value)
@@ -2880,7 +2880,7 @@ end)
 
 
 
-        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Candy ( Only Max Level )",Description = "", Default = false })
+        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Max Level ",Description = "", Default = false })
         ToggleCandy:OnChanged(function(Value)
            _G.AutoCandy = Value
            if Value == false then
