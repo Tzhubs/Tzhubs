@@ -2721,6 +2721,17 @@ for _, player in ipairs(Players:GetPlayers()) do
 end
 
 
+-- Inicialização de variáveis globais
+_G.FastAttack = false
+_G.Fast_Delay = 0.9
+_G.FastAttackFaiFao_Mode = "Normal Attack"
+
+-- Definição da função AttackFunction
+function AttackFunction()
+    print("AttackFunction executada")
+    -- Adicione a lógica do ataque aqui
+end
+
 Tabs.Main:AddButton({
     Title = "Biel Hub Discord Server",
     Description = "Very important",
@@ -2728,6 +2739,7 @@ Tabs.Main:AddButton({
         setclipboard("Discord de vocês")
     end
 })
+print("Botão adicionado")
 
 local Farming = Tabs.Main:AddSection("Farming")
 local FastAttack = {'Normal Attack', 'Fast Attack', 'Super Fast Attack'}
@@ -2739,12 +2751,13 @@ local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
     Multi = false,
     Default = 1,
 })
+print("Dropdown configurado")
 
-DropdownDelayAttack:SetValue("Super Fast Attack")
+DropdownDelayAttack:SetValue("Fast Attack")
 DropdownDelayAttack:OnChanged(function(Value)
     _G.FastAttackFaiFao_Mode = Value
     if _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-        adjustClickDelay(0.05)
+        adjustClickDelay(0.05)  -- Reduzido para 0.05 segundos
     elseif _G.FastAttackFaiFao_Mode == "Fast Attack" then
         adjustClickDelay(0.6)
     elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
@@ -2756,6 +2769,7 @@ local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {
     Title = "Activate Auto Attack",
     Default = true
 })
+print("Toggle configurado")
 
 TurnFastAttack:OnChanged(function(value)
     _G.FastAttack = value
@@ -2777,6 +2791,7 @@ task.spawn(function()
         end
     end)
 end)
+
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
         Description = "",
@@ -7539,7 +7554,7 @@ OrionLib:MakeNotification(
         Name = "Notification",
         Content = "Done Loading Code You Can Use Script Now",
         Image = "rbxassetid://88147973848189",
-        Time = 5
+        Time = 3
     }
 )
 
@@ -7547,7 +7562,7 @@ OrionLib:MakeNotification(
 Fluent:Notify({
     Title = "Biel  Hub",
     Content = "Thanks For Using Biel  Hub",
-    Duration = 8
+    Duration = 4
 })
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
