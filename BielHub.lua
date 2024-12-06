@@ -80,7 +80,7 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88147973848189" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88928557832575" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://88147973848189" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://88147973848189" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://88147973848189" }),
@@ -98,7 +98,7 @@ OrionLib:MakeNotification(
             Name = "Notification",
             Content = "Please Wait For Loading Biel hub",
             Image = "rbxassetid://88147973848189",
-            Time = 7
+            Time = 3
         }
     )
 _G.lakala = true
@@ -2748,8 +2748,8 @@ spawn(function()
     while wait(.1) do
         if _G.FastAttackDelay then
             pcall(function()
-                if _G.FastAttackDelay == "Suoer Fast Attack" then
-                    _G.FastAttackDelay = 0.6
+                if _G.FastAttackDelay == "Super Fast Attack" then
+                    _G.FastAttackDelay = 0.4
                 elseif _G.FastAttackDelay == "Fast Attack" then
                     _G.FastAttackDelay = 0.8
                 elseif _G.FastAttackDelay == "Normal Attack" then
