@@ -98,7 +98,7 @@ OrionLib:MakeNotification(
             Name = "Notification",
             Content = "Please Wait For Loading Biel hub",
             Image = "rbxassetid://88147973848189",
-            Time = 3
+            Time = 7
         }
     )
 _G.lakala = true
@@ -2729,35 +2729,41 @@ Tabs.Main:AddButton({
         end
         })
 local Farming = Tabs.Main:AddSection("Farming")
-local AttackList = {"Fast Attack", "Normal Attack", "Super Fast Attack"}
+local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 
-    local Dropdown = Tabs.Settings:AddDropdown("Dropdown", {
-        Title = "Fast Attack Speed",
-        Values = {"Fast Attack", "Normal Attack", "Super Fast Attack"},
+    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
+        Title = "Select Fast Attack",
+        Description = "",
+        Values = FastAttack,
         Multi = false,
         Default = 1,
     })
+    DropdownDelayAttack:SetValue("Super Fast Attack")
+    DropdownDelayAttack:OnChanged(function(Value)
+    _G.FastAttack = Value
+	if _G.FastAttack == "Fast Attack" then
+		_G.Fast_Delay = 0.001
+	elseif _G.FastAttack == "Normal Attack" then
+		_G.Fast_Delay = 2
+	elseif _G.FastAttack == "Super Fast Attack" then
+		_G.Fast_Delay = 0.001
+	end
+end)
 
-    Dropdown:SetValue("0.8")
+local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
-    Dropdown:OnChanged(function(Value)
-        _G.FastAttackDelay = Value
-    end)
+TurnFastAttack:OnChanged(function(value)
+    _G.FastAttack = value
+end)
 
-spawn(function()
-    while wait(.1) do
-        if _G.FastAttackDelay then
-            pcall(function()
-                if _G.FastAttackDelay == "Super Fast Attack" then
-                    _G.FastAttackDelay = 0.4
-                elseif _G.FastAttackDelay == "Fast Attack" then
-                    _G.FastAttackDelay = 0.8
-                elseif _G.FastAttackDelay == "Normal Attack" then
-                    _G.FastAttackDelay = 1
-                end
-            end)
-        end
-    end
+task.spawn(function()
+	pcall(function()
+	while task.wait(_G.Fast_Delay) do
+		if FastAttack and _G.FastAttack then
+			AttackFunction()
+		   end
+		end
+	end)
 end)
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
