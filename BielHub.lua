@@ -2722,48 +2722,60 @@ end
 
 
 Tabs.Main:AddButton({
-        Title = "Biel  Hub Discord Server",
-        Description = "Very important",
-        Callback = function()
+    Title = "Biel Hub Discord Server",
+    Description = "Very important",
+    Callback = function()
         setclipboard("Discord de vocês")
-        end
-        })
-local Farming = Tabs.Main:AddSection("Farming")
-local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
+    end
+})
 
-    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
-        Title = "Select Fast Attack",
-        Description = "",
-        Values = FastAttack,
-        Multi = false,
-        Default = 1,
-    })
-    DropdownDelayAttack:SetValue("Super Fast Attack")
-    DropdownDelayAttack:OnChanged(function(Value)
+local Farming = Tabs.Main:AddSection("Farming")
+local FastAttack = {'Normal Attack', 'Fast Attack', 'Super Fast Attack'}
+
+local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
+    Title = "Select Fast Attack",
+    Description = "",
+    Values = FastAttack,
+    Multi = false,
+    Default = 1,
+})
+
+DropdownDelayAttack:SetValue("Super Fast Attack")
+DropdownDelayAttack:OnChanged(function(Value)
     _G.FastAttackFaiFao_Mode = Value
-	if _G.FastAttackFaiFao_Mode == "Fast Attack" then
-		_G.Fast_Delay = 0.6
-	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
-		_G.Fast_Delay = 2
-	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		_G.Fast_Delay = value
-	end
+    if _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
+        adjustClickDelay(0.05)
+    elseif _G.FastAttackFaiFao_Mode == "Fast Attack" then
+        adjustClickDelay(0.6)
+    elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
+        adjustClickDelay(0.9)
+    end
 end)
 
-local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
+local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {
+    Title = "Activate Auto Attack",
+    Default = true
+})
 
 TurnFastAttack:OnChanged(function(value)
     _G.FastAttack = value
 end)
 
+local function adjustClickDelay(newDelay)
+    _G.Fast_Delay = newDelay
+end
+
 task.spawn(function()
-	pcall(function()
-	while task.wait(_G.Fast_Delay) do
-		if FastAttack and _G.FastAttack then
-			AttackFunction()
-		   end
-		end
-	end)
+    pcall(function()
+        while task.wait(_G.Fast_Delay) do
+            if _G.FastAttack then
+                task.defer(function()
+                    print("Executing AttackFunction at", os.time())
+                    AttackFunction()
+                end)
+            end
+        end
+    end)
 end)
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
