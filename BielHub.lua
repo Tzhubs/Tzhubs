@@ -2738,10 +2738,10 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
         Multi = false,
         Default = 1,
     })
-    DropdownDelayAttack:SetValue("Super Fast Attack")
+    DropdownDelayAttack:SetValue("Fast Attack")
     DropdownDelayAttack:OnChanged(function(Value)
     _G.FastAttack = Value
-	elseif _G.FastAttack == "Fast Attack" then
+	if _G.FastAttack == "Fast Attack" then
 		_G.Fast_Delay = 0.1
 	elseif _G.FastAttack == "Normal Attack" then
 		_G.Fast_Delay = 2
