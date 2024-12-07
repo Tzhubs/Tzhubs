@@ -2721,75 +2721,50 @@ for _, player in ipairs(Players:GetPlayers()) do
 end
 
 
--- Inicialização de variáveis globais
-_G.FastAttack = false
-_G.Fast_Delay = 0.9
-_G.FastAttackFaiFao_Mode = "Normal Attack"
-
--- Definição da função AttackFunction
-function AttackFunction()
-    print("AttackFunction executada")
-    -- Adicione a lógica do ataque aqui
-end
-
 Tabs.Main:AddButton({
-    Title = "Biel Hub Discord Server",
-    Description = "Very important",
-    Callback = function()
-    setclipboard("Discord de vocês")
-    end
-})
-local Farming = Tabs.Main:AddSection("Farming")
-local FastAttack = {'Normal Attack', 'Fast Attack', 'Super Fast Attack'}
+        Title = "Biel  Hub Discord Server",
+        Description = "Very important",
+        Callback = function()
+        setclipboard("Discord de vocês")
+        end
+        })
+local Farming = Tabs.Main:AddSection("Farming Attack Mode")
+local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
 
-local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
-    Title = "Select Fast Attack",
-    Description = "",
-    Values = FastAttack,
-    Multi = false,
-    Default = 1,
-})
-print("Dropdown configurado")
-
-DropdownDelayAttack:SetValue("Fast Attack")
-DropdownDelayAttack:OnChanged(function(Value)
-    _G.FastAttackFaiFao_Mode = Value
-    if _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-        adjustClickDelay(0.05)  -- Reduzido para 0.05 segundos
-    elseif _G.FastAttackFaiFao_Mode == "Fast Attack" then
-        adjustClickDelay(0.6)
-    elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
-        adjustClickDelay(0.9)
-    end
+    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
+        Title = "Select Fast Attack",
+        Description = "",
+        Values = FastAttack,
+        Multi = false,
+        Default = 1,
+    })
+    DropdownDelayAttack:SetValue("Super Fast Attack")
+    DropdownDelayAttack:OnChanged(function(Value)
+    _G.FastAttack = Value
+	elseif _G.FastAttack == "Fast Attack" then
+		_G.Fast_Delay = 0.1
+	elseif _G.FastAttack == "Normal Attack" then
+		_G.Fast_Delay = 2
+	elseif _G.FastAttack == "Super Fast Attack" then
+		_G.Fast_Delay = 0.05
+	end
 end)
 
-local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {
-    Title = "Activate Auto Attack",
-    Default = true
-})
-print("Toggle configurado")
+local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
 TurnFastAttack:OnChanged(function(value)
     _G.FastAttack = value
 end)
 
-local function adjustClickDelay(newDelay)
-    _G.Fast_Delay = newDelay
-end
-
 task.spawn(function()
-    pcall(function()
-        while task.wait(_G.Fast_Delay) do
-            if _G.FastAttack then
-                task.defer(function()
-                    print("Executing AttackFunction at", os.time())
-                    AttackFunction()
-                end)
-            end
-        end
-    end)
+	pcall(function()
+	while task.wait(_G.Fast_Delay) do
+		if FastAttack and _G.FastAttack then
+			AttackFunction()
+		   end
+		end
+	end)
 end)
-
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
         Description = "",
@@ -7552,7 +7527,7 @@ OrionLib:MakeNotification(
         Name = "Notification",
         Content = "Done Loading Code You Can Use Script Now",
         Image = "rbxassetid://88147973848189",
-        Time = 3
+        Time = 5
     }
 )
 
@@ -7560,7 +7535,7 @@ OrionLib:MakeNotification(
 Fluent:Notify({
     Title = "Biel  Hub",
     Content = "Thanks For Using Biel  Hub",
-    Duration = 4
+    Duration = 8
 })
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
