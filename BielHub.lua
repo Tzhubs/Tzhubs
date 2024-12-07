@@ -72,7 +72,7 @@ local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shl
 
 local Window = Fluent:CreateWindow({
     Title = " Biel  Hub | Blox Fruits",
-    SubTitle = "Version 2.0     by Tz dev",
+    SubTitle = "Version 2.0     discord.gg/bielscripts",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
@@ -80,16 +80,16 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://88928557832575" }),
-    Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://88147973848189" }),
-    Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://88147973848189" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://88147973848189" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://88147973848189" }),
-    Fruit = Window:AddTab({ Title = "Fruit", Icon = "rbxassetid://88147973848189" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "rbxassetid://88147973848189" }),
-    Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://88147973848189" }),
-    Shop = Window:AddTab({ Title = "Shop", Icon = "rbxassetid://88147973848189" }),
-	Misc = Window:AddTab({ Title = "Misc", Icon = "rbxassetid://88147973848189" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://96853344686880" }),
+    Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://96853344686880" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://96853344686880" }),
+    Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://96853344686880" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://96853344686880" }),
+    Fruit = Window:AddTab({ Title = "Fruit", Icon = "rbxassetid://96853344686880" }),
+    Raid = Window:AddTab({ Title = "Raid", Icon = "rbxassetid://96853344686880" }),
+    Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://96853344686880" }),
+    Shop = Window:AddTab({ Title = "Shop", Icon = "rbxassetid://96853344686880" }),
+	Misc = Window:AddTab({ Title = "Misc", Icon = "rbxassetid://96853344686880" }),
 }
 local Options = Fluent.Options
 do
@@ -97,7 +97,7 @@ OrionLib:MakeNotification(
         {
             Name = "Notification",
             Content = "Please Wait For Loading Biel hub",
-            Image = "rbxassetid://88147973848189",
+            Image = "rbxassetid://96853344686880",
             Time = 7
         }
     )
@@ -138,7 +138,7 @@ OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(...)
 			StarterGui:SetCore("SendNotification", {
 				Title = "Biel  Hub",
 				Text = "The script has successfully intercepted an attempted kick.",
-				Icon = "rbxassetid://88147973848189",
+				Icon = "rbxassetid://96853344686880",
 				Duration = 2,
 			})
 		end
@@ -153,7 +153,7 @@ if getgenv().ED_AntiKick.SendNotifications then
 	StarterGui:SetCore("SendNotification", {
 		Title = "Biel  Hub",
 		Text = "Anti-Kick script loaded!",
-		Icon = "rbxassetid://88147973848189",
+		Icon = "rbxassetid://96853344686880",
 		Duration = 3,
 	})
 end
@@ -2500,7 +2500,7 @@ local plr = game.Players.LocalPlayer
             local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
             CamShake:Stop()
             CombatFramework.activeController.attacking = false
-            CombatFramework.activeController.timeToNextAttack = 0
+            CombatFramework.activeController.timeToNextAttack = 0.02
             CombatFramework.activeController.hitboxMagnitude = 180
             game:GetService'VirtualUser':CaptureController()
             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -2742,11 +2742,11 @@ local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
     DropdownDelayAttack:OnChanged(function(Value)
     _G.FastAttack = Value
 	if _G.FastAttack == "Fast Attack" then
-		_G.Fast_Delay = 0.1
+		_G.Fast_Delay = (0.1)
 	elseif _G.FastAttack == "Normal Attack" then
-		_G.Fast_Delay = 2
+		_G.Fast_Delay = (2)
 	elseif _G.FastAttack == "Super Fast Attack" then
-		_G.Fast_Delay = 0.05
+		_G.Fast_Delay = (0.05)
 	end
 end)
 
@@ -6976,6 +6976,13 @@ Tabs.Shop:AddButton({
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
 	end
 })
+Tabs.Shop:AddButton({
+	Title = "Sanguine Art",
+	Description = "",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySanguineArt")
+	end
+})
 
 
 local Mastery = Tabs.Shop:AddSection("Misc Items")
@@ -7526,7 +7533,7 @@ OrionLib:MakeNotification(
     {
         Name = "Notification",
         Content = "Done Loading Code You Can Use Script Now",
-        Image = "rbxassetid://88147973848189",
+        Image = "rbxassetid://96853344686880",
         Time = 5
     }
 )
@@ -7535,7 +7542,7 @@ OrionLib:MakeNotification(
 Fluent:Notify({
     Title = "Biel  Hub",
     Content = "Thanks For Using Biel  Hub",
-    Duration = 8
+    Duration = 5
 })
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
