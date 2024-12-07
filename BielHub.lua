@@ -2728,32 +2728,11 @@ Tabs.Main:AddButton({
         setclipboard("Discord de vocês")
         end
         })
-local Farming = Tabs.Main:AddSection("Farming Attack Mode")
-local FastAttack = {'Normal Attack','Fast Attack','Super Fast Attack'}
-
-    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
-        Title = "Select Fast Attack",
-        Description = "",
-        Values = FastAttack,
-        Multi = false,
-        Default = 1,
-    })
-    DropdownDelayAttack:SetValue("Fast Attack")
-    DropdownDelayAttack:OnChanged(function(Value)
-    _G.FastAttack = Value
-	if _G.FastAttack == "Fast Attack" then
-		_G.Fast_Delay = (0.1)
-	elseif _G.FastAttack == "Normal Attack" then
-		_G.Fast_Delay = (2)
-	elseif _G.FastAttack == "Super Fast Attack" then
-		_G.Fast_Delay = (0.05)
-	end
-end)
 
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
 TurnFastAttack:OnChanged(function(value)
-    _G.FastAttack = value
+    _G.FastAttack = true
 end)
 
 task.spawn(function()
@@ -2795,9 +2774,9 @@ end)
                             end
                         end
                     end
-                elseif ChooseWeapon == " Blox Fruit" then
+                elseif ChooseWeapon == " Blox Fruta" then
                     for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.ToolTip == "Blox Fruit" then
+                        if v.ToolTip == "Blox Fruta" then
                             if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
                                 SelectWeapon = v.Name
                             end
@@ -3638,7 +3617,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
 
     local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
-        Title = "Dropdown",
+        Title = "Selecionar Boss",
         Description = "",
         Values = tableBoss,
         Multi = false,
@@ -5295,7 +5274,7 @@ local ToggleFastAttack = Tabs.Player:AddToggle("ToggleFastAttack", {Title = " Cl
 ToggleFastAttack:OnChanged(function(Value)
  _G.FastAttackFaiFao = Value
 end)
-Options.ToggleFastAttack:SetValue(false)
+Options.ToggleFastAttack:SetValue(true)
 
 
 
@@ -5315,7 +5294,7 @@ SliderDelayAttackPlayer:OnChanged(function(Value)
    _G.DelayAttackPlayer = Value
 end)
 
-SliderDelayAttackPlayer:SetValue(0.1)
+SliderDelayAttackPlayer:SetValue(0.01)
 
 spawn(function()
 while wait() do
