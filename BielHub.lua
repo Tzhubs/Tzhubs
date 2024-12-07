@@ -2736,11 +2736,9 @@ Tabs.Main:AddButton({
     Title = "Biel Hub Discord Server",
     Description = "Very important",
     Callback = function()
-        setclipboard("Discord de vocês")
+    setclipboard("Discord de vocês")
     end
 })
-print("Botão adicionado")
-
 local Farming = Tabs.Main:AddSection("Farming")
 local FastAttack = {'Normal Attack', 'Fast Attack', 'Super Fast Attack'}
 
