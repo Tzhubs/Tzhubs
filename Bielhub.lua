@@ -5,10 +5,10 @@ local support = {
     ["Codex"] = true,
     ["Delta"] = true,
     ["Vega X"] = true,
-    ["Hydrogen"] = true,
+    ["Hydrogen"] = false,
     ["alysse"] = true,
     ["ArceusX"] = true,
-    ["Electron"] = true,
+    ["Electron"] = false,
 }
 
 if support[exploit()]  then
@@ -68,20 +68,19 @@ local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "Prot
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-local OrionLib = loadstring(game:HttpGet((" /Orion/main/source")))()
+local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 
-local Window = OrionLib:CreateWindow({
-    Title = "MutanoX-HUB | Blox Fruits",
+local Window = Fluent:CreateWindow({
+    Title = " MutanoX-HUB | Blox Fruits",
     SubTitle = "Version 2",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
     Theme = "Darker",
-    MinimizeKey = "RightControl"
+    MinimizeKey = Enum.KeyCode.End
 })
-
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://113806187616600" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://96853344686880" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "rbxassetid://113806187616600" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "rbxassetid://113806187616600" }),
     Player = Window:AddTab({ Title = "Player", Icon = "rbxassetid://113806187616600" }),
@@ -90,246 +89,8 @@ local Tabs = {
     Raid = Window:AddTab({ Title = "Raid", Icon = "rbxassetid://113806187616600" }),
     Race = Window:AddTab({ Title = "Race V4", Icon = "rbxassetid://113806187616600" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "rbxassetid://113806187616600" }),
-    Misc = Window:AddTab({ Title = "Misc", Icon = "rbxassetid://113806187616600" }),
-    Cust = Window:AddTab({ Title = "Cust", Icon = "rbxassetid://113806187616600" })
+	Misc = Window:AddTab({ Title = "Misc", Icon = "rbxassetid://113806187616600" }),
 }
-
--- Floating Mini Menu
-local MiniMenu = Instance.new("Frame")
-MiniMenu.Size = UDim2.new(0, 220, 0, 180)
-MiniMenu.Position = UDim2.new(0.5, -110, 0.5, -90)
-MiniMenu.BackgroundTransparency = 0.5
-MiniMenu.BackgroundColor3 = Color3.new(0, 0, 0)
-MiniMenu.BorderSizePixel = 0
-MiniMenu.Parent = game.CoreGui
-
--- Header with Icon
-local MiniMenuHeader = Instance.new("Frame")
-MiniMenuHeader.Size = UDim2.new(1, 0, 0, 25)
-MiniMenuHeader.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
-MiniMenuHeader.Parent = MiniMenu
-
-local HeaderIcon = Instance.new("ImageLabel")
-HeaderIcon.Size = UDim2.new(0, 20, 0, 20)
-HeaderIcon.Position = UDim2.new(0, 5, 0, 2.5)
-HeaderIcon.Image = "rbxassetid://12345678" -- Placeholder icon ID
-HeaderIcon.BackgroundTransparency = 1
-HeaderIcon.Parent = MiniMenuHeader
-
-local MiniMenuTitle = Instance.new("TextLabel")
-MiniMenuTitle.Size = UDim2.new(1, -30, 1, 0)
-MiniMenuTitle.Position = UDim2.new(0, 30, 0, 0)
-MiniMenuTitle.Text = "Mini Menu"
-MiniMenuTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-MiniMenuTitle.BackgroundTransparency = 1
-MiniMenuTitle.Font = Enum.Font.GothamBold
-MiniMenuTitle.TextSize = 16
-MiniMenuTitle.Parent = MiniMenuHeader
-
--- Divider
-local Divider = Instance.new("Frame")
-Divider.Size = UDim2.new(1, 0, 0, 1)
-Divider.Position = UDim2.new(0, 0, 0, 25)
-Divider.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-Divider.Parent = MiniMenu
-
-local PlayerCountLabel = Instance.new("TextLabel")
-PlayerCountLabel.Size = UDim2.new(1, 0, 0, 20)
-PlayerCountLabel.Position = UDim2.new(0, 0, 0, 30)
-PlayerCountLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-PlayerCountLabel.BackgroundTransparency = 1
-PlayerCountLabel.Font = Enum.Font.Gotham
-PlayerCountLabel.TextSize = 14
-PlayerCountLabel.TextXAlignment = Enum.TextXAlignment.Left
-PlayerCountLabel.Parent = MiniMenu
-
-local FullMoonCountdownLabel = Instance.new("TextLabel")
-FullMoonCountdownLabel.Size = UDim2.new(1, 0, 0, 20)
-FullMoonCountdownLabel.Position = UDim2.new(0, 0, 0, 55)
-FullMoonCountdownLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-FullMoonCountdownLabel.BackgroundTransparency = 1
-FullMoonCountdownLabel.Font = Enum.Font.Gotham
-FullMoonCountdownLabel.TextSize = 14
-FullMoonCountdownLabel.TextXAlignment = Enum.TextXAlignment.Left
-FullMoonCountdownLabel.Parent = MiniMenu
-
-local EliteBossNotifyLabel = Instance.new("TextLabel")
-EliteBossNotifyLabel.Size = UDim2.new(1, 0, 0, 20)
-EliteBossNotifyLabel.Position = UDim2.new(0, 0, 0, 80)
-EliteBossNotifyLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-EliteBossNotifyLabel.BackgroundTransparency = 1
-EliteBossNotifyLabel.Font = Enum.Font.Gotham
-EliteBossNotifyLabel.TextSize = 14
-EliteBossNotifyLabel.TextXAlignment = Enum.TextXAlignment.Left
-EliteBossNotifyLabel.Parent = MiniMenu
-
--- Credits
-local Credits = Instance.new("TextLabel")
-Credits.Size = UDim2.new(1, -10, 0, 20)
-Credits.Position = UDim2.new(0, 5, 1, -25) -- Positioned at the bottom
-Credits.Text = "Credits to @MutanoX"
-Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
-Credits.BackgroundTransparency = 1
-Credits.Font = Enum.Font.Gotham
-Credits.TextSize = 12
-Credits.TextXAlignment = Enum.TextXAlignment.Right
-Credits.Parent = MiniMenu
-
--- Function to Update Player Count
-local function UpdatePlayerCount()
-    PlayerCountLabel.Text = "Players: " .. #game.Players:GetPlayers()
-end
-
--- Call the function once to initialize
-UpdatePlayerCount()
-
--- Update player count when players join or leave
-game.Players.PlayerAdded:Connect(UpdatePlayerCount)
-game.Players.PlayerRemoving:Connect(UpdatePlayerCount)
-
--- Function to Calculate Time Until Next Full Moon
-local function CalculateTimeUntilFullMoon()
-    local fullMoonInterval = 60 * 60 -- Full moon every 60 minutes
-    local startOfCycle = tick() - (tick() % fullMoonInterval)
-    local nextFullMoon = startOfCycle + fullMoonInterval
-
-    local timeLeft = math.max(0, nextFullMoon - tick())
-    return math.floor(timeLeft / 60)
-end
-
--- Function to Update Full Moon Countdown
-local function UpdateFullMoonCountdown()
-    local minutesLeft = CalculateTimeUntilFullMoon()
-    FullMoonCountdownLabel.Text = "Full Moon in: " .. minutesLeft .. " min"
-end
-
--- Update Full Moon Countdown every second
-spawn(function()
-    while true do
-        UpdateFullMoonCountdown()
-        wait(1)
-    end
-end)
-
--- Function to Notify When Elite Boss Spawns
-local function NotifyEliteBossSpawn()
-    local eliteBossInterval = 30 * 60 -- Elite Boss spawns every 30 minutes
-    local startOfCycle = tick() - (tick() % eliteBossInterval)
-    local nextSpawn = startOfCycle + eliteBossInterval
-
-    local timeLeft = math.max(0, nextSpawn - tick())
-    local minutesLeft = math.floor(timeLeft / 60)
-    EliteBossNotifyLabel.Text = "Elite Boss in: " .. minutesLeft .. " min"
-end
-
--- Update Elite Boss Notification every second
-spawn(function()
-    while true do
-        NotifyEliteBossSpawn()
-        wait(1)
-    end
-end)
-
--- Make the Mini Menu draggable
-local dragging = false
-local dragInput, dragStart, startPos
-
-MiniMenu.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = true
-        dragStart = input.Position
-        startPos = MiniMenu.Position
-
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
-
-MiniMenu.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then
-        dragInput = input
-    end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        local delta = input.Position - dragStart
-        MiniMenu.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end)
-
--- Function to change border color to RGB
-local function UpdateBorderColor()
-    while wait(0.1) do
-        MiniMenu.BorderColor3 = Color3.fromHSV(tick() % 5 / 5, 1, 1)
-    end
-end
-spawn(UpdateBorderColor)
-
--- Customization Section
-local CustSection = Tabs.Cust:AddSection("Customization")
-
-CustSection:AddToggle("Show Mini Menu", {
-    Title = "Show Mini Menu",
-    Default = true,
-    Callback = function(Value)
-        MiniMenu.Visible = Value
-    end
-})
-
-CustSection:AddToggle("Show Full Moon", {
-    Title = "Show Full Moon",
-    Default = false,
-    Callback = function(Value)
-        FullMoonCountdownLabel.Visible = Value
-    end
-})
-
-CustSection:AddToggle("Notify-Hunter", {
-    Title = "Notify-Hunter",
-    Default = false,
-    Callback = function(Value)
-        EliteBossNotifyLabel.Visible = Value
-    end
-})
-
--- Additional Example Options for the Mini Menu
-local additionalOptions = {
-    "Show Player Health",
-    "Show Nearby Enemies",
-    "Show Current Quest",
-    "Show Current Bounty",
-    "Show Nearby Chests",
-    "Show Boss Timers",
-    "Show Fruit Spawn Timer",
-    "Show Player Level",
-    "Show Player Beli",
-    "Show Player Fragments",
-    "Show Crew Info",
-    "Show Island Name",
-    "Show Server Age",
-    "Show Player Deaths",
-    "Show Player Kills",
-    "Show Race Awakening Progress",
-    "Show Server Time",
-    "Show Server Region",
-    "Show Player Ping",
-    "Show FPS"
-}
-
-for _, option in ipairs(additionalOptions) do
-    CustSection:AddToggle(option, {
-        Title = option,
-        Default = false,
-        Callback = function(Value)
-            -- Logic to handle each information option
-        end
-    })
-end
-
 local Options = Fluent.Options
 do
 OrionLib:MakeNotification(
