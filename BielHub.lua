@@ -2728,6 +2728,7 @@ Tabs.Main:AddButton({
         Callback = function()
         setclipboard("Discord de vocês")
         end
+        BackgroundColor = Color3.fromRGB(0, 0, 139)
         })
 
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
