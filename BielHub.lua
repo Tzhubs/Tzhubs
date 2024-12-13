@@ -71,7 +71,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Biel Hub | Blox Fruits",
+    Title = "BS Hub | Blox Fruits",
     SubTitle = "Version 2.0     discord.gg/bielscripts",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
