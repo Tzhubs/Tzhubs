@@ -71,7 +71,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 
 local Window = Fluent:CreateWindow({
-    Title = "BS Hub | Blox Fruits",
+    Title = "BS  Hub | Blox Fruits",
     SubTitle = "Version 2.0     discord.gg/bielscripts",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
@@ -2657,7 +2657,7 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=113806187616600"
+ImageButton.Image = "http://www.roblox.com/asset/?id=94444668613056"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 end)
