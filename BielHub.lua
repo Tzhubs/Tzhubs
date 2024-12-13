@@ -14,7 +14,7 @@ local support = {
 if support[exploit()]  then
     print("Correct Executor Let's Run uwu")
 else
- game.Players.LocalPlayer:Kick("Ko Hỗ Trợ Executor | Not Support Executor | Tidak Mendukung Pelaksana | support fluxus,codex,delta,ArceusX,vegaX,hydrogen")
+ game.Players.LocalPlayer:Kick("Ko Hỗ Trợ Executor | Not Support Executor | Tidak Mendukung Pelaksana | support fluxus,arceusX,codex,delta,ArceusX,vegaX,hydrogen")
  end
     
 local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Fluxus" or
@@ -71,13 +71,14 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 
 local Window = Fluent:CreateWindow({
-    Title = " Biel  Hub | Blox Fruits",
+    Title = "Biel Hub | Blox Fruits",
     SubTitle = "Version 2.0     discord.gg/bielscripts",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
-    Theme = "Light ",
-    MinimizeKey = Enum.KeyCode.End
+    Theme = "Light",
+    MinimizeKey = Enum.KeyCode.End,
+    BackgroundColor = Color3.fromRGB(255, 255, 255) -- Define a cor de fundo como branca
 })
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://96853344686880" }),
