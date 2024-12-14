@@ -2721,6 +2721,24 @@ for _, player in ipairs(Players:GetPlayers()) do
         onCharacterAdded(player.Character)
     end
 end
+-- Pegar o ID do servidor atual e copiar para a área de transferência
+function PegarIdServer()
+    local JobId = game.JobId
+    setclipboard(JobId)
+    print("ID do servidor copiado: " .. JobId)
+end
+
+-- Teleportar para o servidor com o ID especificado
+function TeleportarIdServer(ID)
+    local TeleportService = game:GetService("TeleportService")
+    local PlaceId = game.PlaceId
+    local JobId = ID 
+    if JobId and JobId ~= "" then
+        TeleportService:TeleportToPlaceInstance(PlaceId, JobId, game.Players.LocalPlayer)
+    else
+        warn("ID do servidor não foi definido ou está vazio.")
+    end
+end
 
 Tabs.Main:AddButton({
         Title = "Biel  Hub Discord Server",
