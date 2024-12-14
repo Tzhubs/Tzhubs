@@ -2722,6 +2722,47 @@ for _, player in ipairs(Players:GetPlayers()) do
     end
 end
 
+-- Função para teleportar para o servidor com o ID especificado
+function TeleportToServer(serverId)
+    local TeleportService = game:GetService("TeleportService")
+    local placeId = game.PlaceId -- Obtém o ID do lugar atual
+
+    -- Teleporta para o servidor com o ID especificado
+    TeleportService:TeleportToPlaceInstance(placeId, serverId, game.Players.LocalPlayer)
+end
+
+-- Função para criar o toggle
+function CreateToggle()
+    local ScreenGui = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local TextBox = Instance.new("TextBox")
+    local Button = Instance.new("TextButton")
+
+    ScreenGui.Parent = game.CoreGui
+
+    Frame.Parent = ScreenGui
+    Frame.Size = UDim2.new(0, 250, 0, 150)
+    Frame.Position = UDim2.new(0.5, -125, 0.5, -75)
+    Frame.BackgroundTransparency = 0.5
+
+    TextBox.Parent = Frame
+    TextBox.Size = UDim2.new(0, 200, 0, 50)
+    TextBox.Position = UDim2.new(0.5, -100, 0.5, -50)
+    TextBox.PlaceholderText = "Insira o ID do servidor"
+
+    Button.Parent = Frame
+    Button.Size = UDim2.new(0, 200, 0, 50)
+    Button.Position = UDim2.new(0.5, -100, 0.5, 10)
+    Button.Text = "Teleportar"
+
+    Button.MouseButton1Click:Connect(function()
+        local serverId = TextBox.Text
+        TeleportToServer(serverId)
+    end)
+end
+
+-- Chama a função para criar o toggle
+CreateToggle()
 
 Tabs.Main:AddButton({
         Title = "Biel  Hub Discord Server",
@@ -2731,28 +2772,6 @@ Tabs.Main:AddButton({
         end
         })
         
-local HttpService = game:GetService("HttpService")
-local TeleportService = game:GetService("TeleportService")
-local webhookURL = "YOUR_WEBHOOK_URL" -- Substitua pela URL do seu webhook
-
--- Função para enviar o link do servidor para o webhook
-local function sendServerLink(serverId)
-    local data = {
-        ["content"] = "Novo link do servidor: https://roblox.com/games/" .. serverId
-    }
-
-    local jsonData = HttpService:JSONEncode(data)
-    HttpService:PostAsync(webhookURL, jsonData)
-end
-
--- Função para teletransportar jogadores para o novo servidor
-local function teleportPlayers(serverId)
-    local players = game.Players:GetPlayers()
-    for _, player in ipairs(players) do
-        TeleportService:Teleport(serverId, player)
-    end
-end
-
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
 TurnFastAttack:OnChanged(function(value)
