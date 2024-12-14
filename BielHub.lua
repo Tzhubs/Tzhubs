@@ -2730,6 +2730,33 @@ Tabs.Main:AddButton({
         setclipboard("Discord de vocês")
         end
         })
+        
+local HttpService = game:GetService("HttpService")
+local TeleportService = game:GetService("TeleportService")
+local webhookURL = "YOUR_WEBHOOK_URL" -- Substitua pela URL do seu webhook
+
+-- Função para enviar o link do servidor para o webhook
+local function sendServerLink(serverId)
+    local data = {
+        ["content"] = "Novo link do servidor: https://roblox.com/games/" .. serverId
+    }
+
+    local jsonData = HttpService:JSONEncode(data)
+    HttpService:PostAsync(webhookURL, jsonData)
+end
+
+-- Função para teletransportar jogadores para o novo servidor
+local function teleportPlayers(serverId)
+    local players = game.Players:GetPlayers()
+    for _, player in ipairs(players) do
+        TeleportService:Teleport(serverId, player)
+    end
+end
+
+-- Exemplo de uso
+local newServerId = 123456789 -- Substitua pelo ID do novo servidor
+sendServerLink(newServerId)
+teleportPlayers(newServerId)
 
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
@@ -7515,7 +7542,7 @@ OrionLib:MakeNotification(
         Name = "Notification",
         Content = "Done Loading Code You Can Use Script Now",
         Image = "rbxassetid://96853344686880",
-        Time = 5
+        Time = 1
     }
 )
 
@@ -7523,7 +7550,7 @@ OrionLib:MakeNotification(
 Fluent:Notify({
     Title = "Biel  Hub",
     Content = "Thanks For Using Biel  Hub",
-    Duration = 5
+    Duration = 1
 })
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
