@@ -1,7 +1,7 @@
 local exploit = getexecutorname or identifyexecutor
 local support = {
     ["Fluxus"] = true,
-    ["Trigon"] = false,
+    ["Trigon"] = true,
     ["Codex"] = true,
     ["Delta"] = true,
     ["Vega X"] = true,
@@ -9,12 +9,13 @@ local support = {
     ["alysse"] = false,
     ["ArceusX"] = true,
     ["Electron"] = false,
+    ["Jjsploit"] = true,
 }
 
 if support[exploit()]  then
     print("Correct Executor Let's Run uwu")
 else
- game.Players.LocalPlayer:Kick("Ko Hỗ Trợ Executor | Not Support Executor | Tidak Mendukung Pelaksana | support fluxus,arceusX,codex,delta,ArceusX,vegaX,hydrogen")
+ game.Players.LocalPlayer:Kick("Ko Hỗ Trợ Executor | Not Support Executor | Tidak Mendukung Pelaksana | support fluxus,jjsploit,codex,delta,ArceusX,vegaX,hydrogen")
  end
     
 local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Fluxus" or
@@ -2657,7 +2658,7 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=5430597569"
+ImageButton.Image = "http://www.roblox.com/asset/?id=113806187616600"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 end)
