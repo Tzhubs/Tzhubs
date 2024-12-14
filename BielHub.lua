@@ -77,9 +77,9 @@ local Window = Fluent:CreateWindow({
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
-    Theme = "Dark red",
+    Theme = "Light",
     MinimizeKey = Enum.KeyCode.End,
-    BackgroundColor = Color3.fromRGB(139, 0, 0) -- Define a cor de fundo como branca
+    BackgroundColor = Color3.fromRGB(255, 255, 255) -- Define a cor de fundo como branca
 })
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://96853344686880" }),
@@ -2721,24 +2721,6 @@ for _, player in ipairs(Players:GetPlayers()) do
         onCharacterAdded(player.Character)
     end
 end
--- Pegar o ID do servidor atual e copiar para a área de transferência
-function PegarIdServer()
-    local JobId = game.JobId
-    setclipboard(JobId)
-    print("ID do servidor copiado: " .. JobId)
-end
-
--- Teleportar para o servidor com o ID especificado
-function TeleportarIdServer(ID)
-    local TeleportService = game:GetService("TeleportService")
-    local PlaceId = game.PlaceId
-    local JobId = ID 
-    if JobId and JobId ~= "" then
-        TeleportService:TeleportToPlaceInstance(PlaceId, JobId, game.Players.LocalPlayer)
-    else
-        warn("ID do servidor não foi definido ou está vazio.")
-    end
-end
 
 Tabs.Main:AddButton({
         Title = "Biel  Hub Discord Server",
@@ -2748,6 +2730,31 @@ Tabs.Main:AddButton({
         end
         })
         
+-- Função para pegar o ID do servidor atual e copiar para a área de transferência
+function PegarIdServer()
+    local JobId = game.JobId
+    if setclipboard then
+        setclipboard(JobId)
+        print("ID do servidor copiado: " .. JobId)
+    else
+        warn("Função setclipboard não está disponível.")
+    end
+end
+
+-- Função para teleportar para o servidor com o ID especificado
+function TeleportarIdServer(ID)
+    local TeleportService = game:GetService("TeleportService")
+    local PlaceId = game.PlaceId
+    local JobId = ID 
+    print("Tentando teleportar para o servidor com ID: " .. JobId)
+    if JobId and JobId ~= "" then
+        TeleportService:TeleportToPlaceInstance(PlaceId, JobId, game.Players.LocalPlayer)
+        print("Teleportação iniciada.")
+    else
+        warn("ID do servidor não foi definido ou está vazio.")
+    end
+end)
+
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
 TurnFastAttack:OnChanged(function(value)
