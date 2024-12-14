@@ -2753,11 +2753,6 @@ local function teleportPlayers(serverId)
     end
 end
 
--- Exemplo de uso
-local newServerId = 123456789 -- Substitua pelo ID do novo servidor
-sendServerLink(newServerId)
-teleportPlayers(newServerId)
-
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
 TurnFastAttack:OnChanged(function(value)
