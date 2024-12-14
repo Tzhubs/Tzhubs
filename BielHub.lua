@@ -77,9 +77,9 @@ local Window = Fluent:CreateWindow({
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
-    Theme = "Light",
+    Theme = "Dark red",
     MinimizeKey = Enum.KeyCode.End,
-    BackgroundColor = Color3.fromRGB(255, 255, 255) -- Define a cor de fundo como branca
+    BackgroundColor = Color3.fromRGB(139, 0, 0) -- Define a cor de fundo como branca
 })
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://96853344686880" }),
@@ -2727,8 +2727,19 @@ function TeleportToServer(serverId)
     local TeleportService = game:GetService("TeleportService")
     local placeId = game.PlaceId -- Obtém o ID do lugar atual
 
-    -- Teleporta para o servidor com o ID especificado
-    TeleportService:TeleportToPlaceInstance(placeId, serverId, game.Players.LocalPlayer)
+    -- Verifica se o ID do servidor é válido
+    if serverId and serverId ~= "" then
+        -- Tenta teleportar para o servidor com o ID especificado
+        local success, errorMessage = pcall(function()
+            TeleportService:TeleportToPlaceInstance(placeId, serverId, game.Players.LocalPlayer)
+        end)
+        
+        if not success then
+            warn("Falha ao teleportar: " .. errorMessage)
+        end
+    else
+        warn("ID do servidor inválido.")
+    end
 end
 
 -- Função para criar o toggle
@@ -2736,7 +2747,9 @@ function CreateToggle()
     local ScreenGui = Instance.new("ScreenGui")
     local Frame = Instance.new("Frame")
     local TextBox = Instance.new("TextBox")
-    local Button = Instance.new("TextButton")
+    local TeleportButton = Instance.new("TextButton")
+    local CloseButton = Instance.new("TextButton")
+    local MinimizeButton = Instance.new("TextButton")
 
     ScreenGui.Parent = game.CoreGui
 
@@ -2750,14 +2763,32 @@ function CreateToggle()
     TextBox.Position = UDim2.new(0.5, -100, 0.5, -50)
     TextBox.PlaceholderText = "Insira o ID do servidor"
 
-    Button.Parent = Frame
-    Button.Size = UDim2.new(0, 200, 0, 50)
-    Button.Position = UDim2.new(0.5, -100, 0.5, 10)
-    Button.Text = "Teleportar"
+    TeleportButton.Parent = Frame
+    TeleportButton.Size = UDim2.new(0, 200, 0, 50)
+    TeleportButton.Position = UDim2.new(0.5, -100, 0.5, 10)
+    TeleportButton.Text = "Teleportar"
 
-    Button.MouseButton1Click:Connect(function()
+    CloseButton.Parent = Frame
+    CloseButton.Size = UDim2.new(0, 50, 0, 50)
+    CloseButton.Position = UDim2.new(1, -50, 0, 0)
+    CloseButton.Text = "X"
+
+    MinimizeButton.Parent = Frame
+    MinimizeButton.Size = UDim2.new(0, 50, 0, 50)
+    MinimizeButton.Position = UDim2.new(1, -100, 0, 0)
+    MinimizeButton.Text = "-"
+
+    TeleportButton.MouseButton1Click:Connect(function()
         local serverId = TextBox.Text
         TeleportToServer(serverId)
+    end)
+
+    CloseButton.MouseButton1Click:Connect(function()
+        ScreenGui:Destroy()
+    end)
+
+    MinimizeButton.MouseButton1Click:Connect(function()
+        Frame.Visible = not Frame.Visible
     end)
 end
 
