@@ -2729,31 +2729,6 @@ Tabs.Main:AddButton({
         setclipboard("Discord de vocês")
         end
         })
-        
--- Função para pegar o ID do servidor atual e copiar para a área de transferência
-function PegarIdServer()
-    local JobId = game.JobId
-    if setclipboard then
-        setclipboard(JobId)
-        print("ID do servidor copiado: " .. JobId)
-    else
-        warn("Função setclipboard não está disponível.")
-    end
-end
-
--- Função para teleportar para o servidor com o ID especificado
-function TeleportarIdServer(ID)
-    local TeleportService = game:GetService("TeleportService")
-    local PlaceId = game.PlaceId
-    local JobId = ID 
-    print("Tentando teleportar para o servidor com ID: " .. JobId)
-    if JobId and JobId ~= "" then
-        TeleportService:TeleportToPlaceInstance(PlaceId, JobId, game.Players.LocalPlayer)
-        print("Teleportação iniciada.")
-    else
-        warn("ID do servidor não foi definido ou está vazio.")
-    end
-end)
 
 local TurnFastAttack = Tabs.Main:AddToggle("FastAttack_Toggle", {Title = "Fast Attack", Default = true })
 
