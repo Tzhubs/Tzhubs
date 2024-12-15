@@ -816,6 +816,33 @@ QuestLv = 2
 NameMon = "Isle Champion"
 CFrameQ = CFrame.new(-16542.447265625, 55.68632888793945, 1044.41650390625)
 CFrameMon = CFrame.new(-16848.94140625, 21.68633460998535, 1041.4490966796875)
+Ms = "DragonTalonDojo"
+NameQuest = "DragonTalonDojoQuest"
+QuestLv = 2
+NameMon = "Dragon Talon Master"
+CFrameQ = CFrame.new(-17000.123, 60.456, 1100.789)
+CFrameMon = CFrame.new(-17200.456, 25.789, 1150.123)
+elseif Lv >= 2550 or SelectMonster == "DragonGuardian" or SelectArea == 'Dragon Hunter' then
+Ms = "HydraIsland"
+NameQuest = "HydraIslandQuest"
+QuestLv = 2
+NameMon = "Hydra Guardian"
+CFrameQ = CFrame.new(-18000.321, 70.654, 1200.987)
+CFrameMon = CFrame.new(-18200.654, 30.987, 1250.321)
+elseif Lv >= 2575 or SelectMonster == "HydraGuardian" or SelectArea == 'Hydra island' then
+Ms = "GrandeÁrvore"
+NameQuest = "GreatTreeQuest"
+QuestLv = 2
+NameMon = "Tree Beast"
+CFrameQ = CFrame.new(-19000.789, 80.123, 1300.456)
+CFrameMon = CFrame.new(-19200.123, 35.456, 1350.789)
+elseif Lv >= 2590 or SelectMonster == "TreeBeast" or SelectArea == 'GreenTree' then
+Ms = "DracoIsland"
+NameQuest = "DracoIslandQuest"
+QuestLv = 2
+NameMon = "Draco Warrior"
+CFrameQ = CFrame.new(-20000.456, 90.789, 1400.123)
+CFrameMon = CFrame.new(-20200.789, 40.123, 1450.456)
 end
 end
 end
