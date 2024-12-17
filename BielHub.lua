@@ -110,35 +110,4 @@ TextLabel.BackgroundTransparency = 1 -- Torna o fundo transparente
     })
 end
 
-createWindow()
-
--- Close UI
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 50, 0, 50)
-ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=1138061876" -- Verifique o ID da imagem
-
-UICorner.CornerRadius = UDim.new(0, 10) -- Define as bordas quadradas com pontas arredondadas
-UICorner.Parent = ImageButton
-
-ImageButton.MouseButton1Down:connect(function()
-    if Window then
-        Window:Destroy()
-        Window = nil
-    else
-        createWindow()
-        OrionLib:Init()
-    end
-end)
-
 OrionLib:Init()
