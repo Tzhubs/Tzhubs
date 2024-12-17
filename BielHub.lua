@@ -3,7 +3,7 @@ local Window
 
 local function createWindow()
     Window = OrionLib:MakeWindow({
-        Name = "BS HUB",
+        Name = "BS HUB   |    ☆    discord.gg/bielscripts",
         SubTitle = "discord.gg/bielscript",
         HidePremium = false,
         SaveConfig = true,
@@ -12,8 +12,8 @@ local function createWindow()
         Theme = {
             MainColor = Color3.fromRGB(255, 0, 0),
             AccentColor = Color3.fromRGB(255, 0, 0),
-            BackgroundColor = Color3.fromRGB(30, 30, 30),
-            BorderColor = Color3.fromRGB(255, 0, 0)
+            BackgroundColor = Color3.fromRGB(255, 0, 0),
+            BorderColor = Color3.fromRGB(192, 192, 192)
         }
     })
 
@@ -64,7 +64,6 @@ TextLabel.TextColor3 = Color3.new(0, 0, 0) -- Cor do texto
 TextLabel.TextScaled = true -- Ajusta o tamanho do texto automaticamente
 TextLabel.BackgroundTransparency = 1 -- Torna o fundo transparente
 
-    
     MainFarmingTab:AddDropdown({
         Name = "Sea 1 Select boss",
         Default = "1",
