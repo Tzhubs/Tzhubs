@@ -3,17 +3,13 @@ local Window
 
 local function createWindow()
     Window = OrionLib:MakeWindow({
-        Name = "BS HUB   |    ☆    discord.gg/bielscripts",
-        SubTitle = "discord.gg/bielscript",
+        Name = "BS HUB   |  ☆    discord.gg/bielscripts",
         HidePremium = false,
         SaveConfig = true,
         ConfigFolder = "OrionTest",
         IntroText = "Bem-vindo ao BS HUB",
         Theme = {
-            MainColor = Color3.fromRGB(255, 0, 0),
-            AccentColor = Color3.fromRGB(255, 0, 0),
-            BackgroundColor = Color3.fromRGB(255, 0, 0),
-            BorderColor = Color3.fromRGB(192, 192, 192)
+        BackgroundColor = Color3.fromRGB(255, 0, 0),
         }
     })
 
@@ -50,7 +46,7 @@ local function createWindow()
         end    
     })
     
-    local ScreenGui = Instance.new("ScreenGui")
+local ScreenGui = Instance.new("ScreenGui")
 local TextLabel = Instance.new("TextLabel")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -63,36 +59,6 @@ TextLabel.Text = "Farm Settings Boss"
 TextLabel.TextColor3 = Color3.new(0, 0, 0) -- Cor do texto
 TextLabel.TextScaled = true -- Ajusta o tamanho do texto automaticamente
 TextLabel.BackgroundTransparency = 1 -- Torna o fundo transparente
-
-    MainFarmingTab:AddDropdown({
-        Name = "Sea 1 Select boss",
-        Default = "1",
-        Options = {"Vice Admiral", "Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Saber Expert", "Warden", "Chief Warden", "Swan", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Ice Admiral", "GreyBeard"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-
-MainFarmingTab:AddDropdown({
-        Name = "Sea 2 Select Boss",
-        Default = "1",
-        Options = {"Diamont", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Dark Beard", "Cursed Captain", "Order"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-    
-    MainFarmingTab:AddDropdown({
-        Name = "Sea 3 Select Boss",
-        Default = "1",
-        Options = {"Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Cake queen", "Longma", "Soul Reaper", "Rip_Indra True Form"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
 
     -- SubFarming
     local SubFarmingTab = Window:MakeTab({
