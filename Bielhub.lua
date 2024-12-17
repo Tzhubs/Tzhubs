@@ -50,7 +50,7 @@ local function createWindow()
         end    
     })
     
-    Farm boss
+    Name = "Farm boss"
     
     MainFarmingTab:AddDropdown({
         Name = "Sea 1 Select boss",
