@@ -30,15 +30,7 @@ local function createWindow()
             print("Farming iniciado!")
             -- Adicione aqui a função que você deseja executar
         end    
-    })
-
-    MainFarmingTab:AddButton({
-        Name = "Fast attack",
-        Callback = function()
-            print("Fast attack on")
-            -- Adicione aqui a função que você deseja executar
-        end    
-    })
+    })    
     
     MainFarmingTab:AddDropdown({
         Name = "Select Attack Type",
@@ -49,6 +41,29 @@ local function createWindow()
             -- Adicione aqui a função que você deseja executar com base na seleção
         end    
     })
+    
+    MainFarmingTab:AddButton({
+        Name = "Fast attack",
+        Callback = function()
+            print("Fast attack on")
+            -- Adicione aqui a função que você deseja executar
+        end    
+    })
+    
+    local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Position = UDim2.new(0.5, -100, 0.4, -25) -- Ajuste a posição conforme necessário
+TextLabel.Text = "Farm Settings Boss"
+TextLabel.TextColor3 = Color3.new(0, 0, 0) -- Cor do texto
+TextLabel.TextScaled = true -- Ajusta o tamanho do texto automaticamente
+TextLabel.BackgroundTransparency = 1 -- Torna o fundo transparente
+
     
     MainFarmingTab:AddDropdown({
         Name = "Sea 1 Select boss",
