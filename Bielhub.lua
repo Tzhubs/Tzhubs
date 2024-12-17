@@ -24,16 +24,6 @@ local function createWindow()
         PremiumOnly = false
     })
 
-    MainFarmingTab:AddDropdown({
-        Name = "Escolha uma opção",
-        Default = "1",
-        Options = {"Normal Attack", "Fast attack", "Super Fas Attack"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-
     MainFarmingTab:AddButton({
         Name = "Auto farm level",
         Callback = function()
@@ -47,6 +37,48 @@ local function createWindow()
         Callback = function()
             print("Fast attack on")
             -- Adicione aqui a função que você deseja executar
+        end    
+    })
+    
+    MainFarmingTab:AddDropdown({
+        Name = "Select Attack Type",
+        Default = "1",
+        Options = {"Normal Attack", "Fast attack", "Super Fas Attack"},
+        Callback = function(selected)
+            print("Você selecionou: " .. selected)
+            -- Adicione aqui a função que você deseja executar com base na seleção
+        end    
+    })
+    
+    Farm boss
+    
+    MainFarmingTab:AddDropdown({
+        Name = "Sea 1 Select boss",
+        Default = "1",
+        Options = {"Vice Admiral", "Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Saber Expert", "Warden", "Chief Warden", "Swan", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Ice Admiral", "GreyBeard"},
+        Callback = function(selected)
+            print("Você selecionou: " .. selected)
+            -- Adicione aqui a função que você deseja executar com base na seleção
+        end    
+    })
+
+MainFarmingTab:AddDropdown({
+        Name = "Sea 2 Select Boss",
+        Default = "1",
+        Options = {"Diamont", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Dark Beard", "Cursed Captain", "Order"},
+        Callback = function(selected)
+            print("Você selecionou: " .. selected)
+            -- Adicione aqui a função que você deseja executar com base na seleção
+        end    
+    })
+    
+    MainFarmingTab:AddDropdown({
+        Name = "Sea 3 Select Boss",
+        Default = "1",
+        Options = {"Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Cake queen", "Longma", "Soul Reaper", "Rip_Indra True Form"},
+        Callback = function(selected)
+            print("Você selecionou: " .. selected)
+            -- Adicione aqui a função que você deseja executar com base na seleção
         end    
     })
 
