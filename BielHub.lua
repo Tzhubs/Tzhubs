@@ -3,13 +3,18 @@ local Window
 
 local function createWindow()
     Window = OrionLib:MakeWindow({
-        Name = "BS HUB   |  ☆    discord.gg/bielscripts",
+        Name = "BS HUB",
+        SubTitle = "discord.gg/bielscript",
         HidePremium = false,
         SaveConfig = true,
         ConfigFolder = "OrionTest",
         IntroText = "Bem-vindo ao BS HUB",
         Theme = {
-        BackgroundColor = Color3.fromRGB(255,255, 255)
+            MainColor = Color3.fromRGB(255, 0, 0),  -- Cor principal
+            AccentColor = Color3.fromRGB(255, 0, 0),  -- Cor de destaque
+            BackgroundColor = Color3.fromRGB(30, 30, 30),  -- Cor de fundo
+            BorderColor = Color3.fromRGB(255, 0, 0),  -- Cor da borda
+        }
     })
 
     -- Main Farming
@@ -26,31 +31,30 @@ local function createWindow()
             -- Adicione aqui a função que você deseja executar
         end    
     })    
-    
-    -- ConfigFarm
-    local ConfigTab = Window:MakeTab({
-        Name = "ConfigFarm",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-    
-        
+
     MainFarmingTab:AddDropdown({
         Name = "Select Attack Type",
         Default = "1",
-        Options = {"Normal Attack", "Fast attack", "Super Fas Attack"},
+        Options = {"Normal Attack", "Fast attack", "Super Fast Attack"},
         Callback = function(selected)
             print("Você selecionou: " .. selected)
             -- Adicione aqui a função que você deseja executar com base na seleção
         end    
     })
-    
+
     MainFarmingTab:AddButton({
         Name = "Fast attack",
         Callback = function()
             print("Fast attack on")
             -- Adicione aqui a função que você deseja executar
         end    
+    })
+  
+    -- SubFarming
+    local SubFarmingTab = Window:MakeTab({
+        Name = "SubFarming",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
     })
 
     -- Stats
@@ -96,4 +100,5 @@ local function createWindow()
     })
 end
 
+createWindow()
 OrionLib:Init()
