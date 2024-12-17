@@ -24,6 +24,16 @@ local function createWindow()
         PremiumOnly = false
     })
 
+    MainFarmingTab:AddDropdown({
+        Name = "Escolha uma opção",
+        Default = "1",
+        Options = {"Normal Attack", "Fast attack", "Super Fas Attack"},
+        Callback = function(selected)
+            print("Você selecionou: " .. selected)
+            -- Adicione aqui a função que você deseja executar com base na seleção
+        end    
+    })
+
     MainFarmingTab:AddButton({
         Name = "Auto farm level",
         Callback = function()
@@ -106,9 +116,9 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=113806187616600"
+ImageButton.Image = "http://www.roblox.com/asset/?id=1138061876" -- Verifique o ID da imagem
 
-UICorner.CornerRadius = UDim.new(1, 0) -- Define as bordas arredondadas
+UICorner.CornerRadius = UDim.new(0, 10) -- Define as bordas quadradas com pontas arredondadas
 UICorner.Parent = ImageButton
 
 ImageButton.MouseButton1Down:connect(function()
