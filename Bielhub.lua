@@ -229,8 +229,6 @@ local eventStatus = {
     kitsuneIsland = false,
     eliteHunter = false
 }
-
--- Função para adicionar um jogador ao servidor de estatísticas
 function addPlayer(playerName)
     if not playerStats[playerName] then
         playerStats[playerName] = {level = 1, experience = 0, health = 100, energy = 100}
@@ -238,9 +236,6 @@ function addPlayer(playerName)
     else
         print(playerName .. " já está no servidor de estatísticas.")
     end
-end
-
--- Função para atualizar as estatísticas de um jogador
 function updateStats(playerName, level, experience, health, energy)
     if playerStats[playerName] then
         playerStats[playerName].level = level or playerStats[playerName].level
@@ -252,8 +247,6 @@ function updateStats(playerName, level, experience, health, energy)
         print(playerName .. " não está no servidor de estatísticas.")
     end
 end
-
--- Função para obter as estatísticas de um jogador
 function getStats(playerName)
     if playerStats[playerName] then
         return playerStats[playerName]
@@ -262,21 +255,15 @@ function getStats(playerName)
         return nil
     end
 end
-
--- Função para atualizar o status dos eventos
 function updateEventStatus(mirage, kitsune, elite)
     eventStatus.mirageIsland = mirage or eventStatus.mirageIsland
     eventStatus.kitsuneIsland = kitsune or eventStatus.kitsuneIsland
     eventStatus.eliteHunter = elite or eventStatus.eliteHunter
     print("Status dos eventos atualizado.")
 end
-
--- Função para obter o status dos eventos
 function getEventStatus()
     return eventStatus
 end
-
--- Exemplo de uso
 addPlayer("Jogador1")
 updateStats("Jogador1", 10, 500, 90, 80)
 updateEventStatus(true, false, true)
@@ -286,6 +273,7 @@ local events = getEventStatus()
 
 print("Estatísticas do Jogador1:", stats)
 print("Status dos eventos:", events)
+end
 
 local Teleport = Window:MakeTab({"Teleport", "Teleport"})
 
