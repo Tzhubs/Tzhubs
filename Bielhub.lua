@@ -69,20 +69,6 @@ Main:AddToggle({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
 })
 
-Main:AddDropdown({
-  Name = "Select Farm Mode",
-  Description = "",
-  Options = {"Melee", "Sword", "Blox fruit"},
-  Default = "",
-  Flag = "Mododefarm",
-  Callback = function(Value)
-    -- Certifique-se de que PlayerId é a variável correta
-    PlayerId = Value
-    print("Modo de farm selecionado: " .. Value)
-  end,
-  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
-})
-
 Main:AddToggle({
   Name = "Start Fast Attack",
   Description = "",
@@ -192,37 +178,9 @@ Main:AddToggle({
 })
 
 Main:AddDropdown({
-  Name = "1 Sea Select Farm Material",
+  Name = "Select Farm Material",
   Description = "",
-  Options = {"Scrap Metal","Leather","Angel Wings","Magma Ore","Fish Tail"},
-  Default = "",
-  Flag = "Select Material",
-  Callback = function(Value)
-    -- Certifique-se de que PlayerId é a variável correta
-    PlayerId = Value
-    print("Material selecionado: " .. Value)
-  end,
-  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
-})
-
-Main:AddDropdown({
-  Name = "2 Sea Select Farm Material",
-  Description = "",
-  Options = {"Scrap Metal","Leather","Radioactive Material","Mystic Droplet","Magma Ore","Vampire Fang"},
-  Default = "",
-  Flag = "Select Material",
-  Callback = function(Value)
-    -- Certifique-se de que PlayerId é a variável correta
-    PlayerId = Value
-    print("Material selecionado: " .. Value)
-  end,
-  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
-})
-
-Main:AddDropdown({
-  Name = "3 Sea Select Farm Material",
-  Description = "",
-  Options = {"Scrap Metal","Leather","Demonic Wisp","Conjured Cocoa","Dragon Scale","Gunpowder","Fish Tail","Mini Tusk"},
+  Options = {"Scrap Metal","Leather","Angel Wings","Magma Ore","Fish Tail","Radioactive Material","Mystic Droplet","Vampire Fang","Demonic Wisp","Conjured Cocoa","Dragon Scale","Gunpowder","Mini Tusk"},
   Default = "",
   Flag = "Select Material",
   Callback = function(Value)
@@ -235,13 +193,111 @@ Main:AddDropdown({
 
 local ConfigFarm = Window:MakeTab({"Config Farm", "Config"})
 
-local Stats Player= Window:MakeTab({"Stats Player", "Stats Player"})
+Main:AddSlider({
+  Name = "Attack Speed ",
+  Min = 0.1,
+  Max = 100.0,
+  Default = 100,
+  Callback = function(value)
+    -- Adicione a lógica para o slider
+    print("Valor do slider: " .. value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do slider
+})
+
+Main:AddDropdown({
+  Name = "Select Farm Mode",
+  Description = "",
+  Options = {"Melee", "Sword", "Blox fruit"},
+  Default = "",
+  Flag = "Mododefarm",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Modo de farm selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+local Stats Player= Window:MakeTab({"Stats", "Stats"})
+
+-- Servidor de Estatísticas para Blox Fruits
+
+-- Tabela para armazenar as estatísticas dos jogadores
+local playerStats = {}
+
+-- Tabela para armazenar o status dos eventos
+local eventStatus = {
+    mirageIsland = false,
+    kitsuneIsland = false,
+    eliteHunter = false
+}
+
+-- Função para adicionar um jogador ao servidor de estatísticas
+function addPlayer(playerName)
+    if not playerStats[playerName] then
+        playerStats[playerName] = {level = 1, experience = 0, health = 100, energy = 100}
+        print(playerName .. " foi adicionado ao servidor de estatísticas.")
+    else
+        print(playerName .. " já está no servidor de estatísticas.")
+    end
+end
+
+-- Função para atualizar as estatísticas de um jogador
+function updateStats(playerName, level, experience, health, energy)
+    if playerStats[playerName] then
+        playerStats[playerName].level = level or playerStats[playerName].level
+        playerStats[playerName].experience = experience or playerStats[playerName].experience
+        playerStats[playerName].health = health or playerStats[playerName].health
+        playerStats[playerName].energy = energy or playerStats[playerName].energy
+        print("Estatísticas de " .. playerName .. " foram atualizadas.")
+    else
+        print(playerName .. " não está no servidor de estatísticas.")
+    end
+end
+
+-- Função para obter as estatísticas de um jogador
+function getStats(playerName)
+    if playerStats[playerName] then
+        return playerStats[playerName]
+    else
+        print(playerName .. " não está no servidor de estatísticas.")
+        return nil
+    end
+end
+
+-- Função para atualizar o status dos eventos
+function updateEventStatus(mirage, kitsune, elite)
+    eventStatus.mirageIsland = mirage or eventStatus.mirageIsland
+    eventStatus.kitsuneIsland = kitsune or eventStatus.kitsuneIsland
+    eventStatus.eliteHunter = elite or eventStatus.eliteHunter
+    print("Status dos eventos atualizado.")
+end
+
+-- Função para obter o status dos eventos
+function getEventStatus()
+    return eventStatus
+end
+
+-- Exemplo de uso
+addPlayer("Jogador1")
+updateStats("Jogador1", 10, 500, 90, 80)
+updateEventStatus(true, false, true)
+
+local stats = getStats("Jogador1")
+local events = getEventStatus()
+
+print("Estatísticas do Jogador1:", stats)
+print("Status dos eventos:", events)
+
 
 local Teleport = Window:MakeTab({"Teleport", "Teleport"})
 
 local Fruits = Window:MakeTab({"Fruit", "Fruit"})
 
 local Raid = Window:MakeTab({"Raid", "Raid"})
+
+local Eventos Do Mar = Window:MakeTab({"EventosDoMar", "EventosDoMar"})
 
 local JobId Teleport = Window:MakeTab({"JobId Teleport", "Teleport"})
 
