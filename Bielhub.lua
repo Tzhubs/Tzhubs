@@ -113,14 +113,45 @@ Main:AddToggle({
 
 local ConfigFarm = Window:MakeTab({"Config Farm", "Config"})
 
-local Stats Player= Window:MakeTab({"Stats Player", "Stats"})
+local Stats Player= Window:MakeTab({"Stats Player", "Stats Player"})
 
 local ConfigFarm = Window:MakeTab({"Teleport", "Teleport"})
 
-local ConfigFarm = Window:MakeTab({"Fruits", "Fruits"})
+local ConfigFarm = Window:MakeTab({"Fruit", "Fruit"})
 
-local ConfigFarm = Window:MakeTab({"Raid", "Raids"})
+local ConfigFarm = Window:MakeTab({"Raid", "Raid"})
 
-local ConfigFarm = Window:MakeTab({"JobId Teleport", "TeleportJobId"})
+local ConfigFarm = Window:MakeTab({"JobId Teleport", "Teleport"})
+
+-- Função para teleportar para um servidor específico
+function teleportToServer(serverId)
+    -- Aqui você colocaria o código específico do jogo para teleportar
+    -- Exemplo fictício:
+    print("Teleportando para o servidor com ID: " .. serverId)
+    -- Código de teleporte do jogo vai aqui
+end
+
+-- Criar uma interface simples para inserir o ID do servidor
+local ScreenGui = Instance.new("ScreenGui")
+local TextBox = Instance.new("TextBox")
+local Button = Instance.new("TextButton")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+TextBox.Size = UDim2.new(0, 200, 0, 50)
+TextBox.Position = UDim2.new(0.5, -100, 0.5, -25)
+TextBox.PlaceholderText = "Insira o ID do servidor"
+TextBox.Parent = ScreenGui
+
+Button.Size = UDim2.new(0, 200, 0, 50)
+Button.Position = UDim2.new(0.5, -100, 0.5, 50)
+Button.Text = "Teleportar"
+Button.Parent = ScreenGui
+
+Button.MouseButton1Click:Connect(function()
+    local serverId = TextBox.Text
+    teleportToServer(serverId)
+end)
+
 
 local ConfigFarm = Window:MakeTab({"Esp", "Esp"})
