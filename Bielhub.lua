@@ -1,10 +1,21 @@
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/RedzLibV5/refs/heads/main/Source.lua"))()
 
-local Window = redzlib:MakeWindow({"Biel Hub | Blox fruit", "by  luakingg2", "BloxFruit.json"})
+local Window = redzlib:MakeWindow({
+  "Biel Hub | Blox fruit",
+  "by  luakingg2",
+  "BloxFruit.json",
+  BackgroundColor = Color3.fromRGB(30, 30, 30), -- Cor de fundo da janela
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas da janela
+})
+
 Window:AddMinimizeButton({
-  Button = { Image = redzlib:GetIcon("rbxassetid://88928557832575"),
+  Button = {
+    Image = redzlib:GetIcon("rbxassetid://88928557832575"),
     Size = UDim2.fromOffset(60, 60),
-    BackgroundTransparency = 0 },
+    BackgroundTransparency = 0,
+    BackgroundColor3 = Color3.fromRGB(50, 50, 50), -- Cor de fundo do botão
+    BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do botão
+  },
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
@@ -16,12 +27,14 @@ Main:AddButton({
   Name = "BIEL HUB DISCORD SERVER",
   Description = "discord.gg/bielscripts",
   Callback = function()
-  IntroText = "Bem-vindo ao Biel Hub",
-  setclipboard("Discord.gg/bielscripts")
-    
-    
-  end
+    print("Bem-vindo ao Biel Hub")
+    setclipboard("Discord.gg/bielscripts")
+  end,
+  BackgroundColor3 = Color3.fromRGB(70, 70, 70), -- Cor de fundo do botão
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do botão
 })
+
+local autoFarmActive = false
 
 Main:AddToggle({
   Name = "Auto Farm level",
@@ -29,10 +42,31 @@ Main:AddToggle({
   Flag = "AtivaFarmLevel",
   Default = false,
   Callback = function(Value)
-    
-    
-    
-  end
+    autoFarmActive = Value
+    if autoFarmActive then
+      print("Auto Farm ativado")
+      spawn(function()
+        while autoFarmActive do
+          -- Código de Auto Farm aqui
+          local player = game.Players.LocalPlayer
+          local character = player.Character or player.CharacterAdded:Wait()
+          local humanoid = character:FindFirstChildOfClass("Humanoid")
+          
+          if humanoid then
+            -- Lógica de farm, como mover o personagem, atacar inimigos, etc.
+            humanoid:MoveTo(Vector3.new(0, 0, 0)) -- Exemplo de movimento
+          end
+          
+          wait(1) -- Intervalo entre ações do Auto Farm
+        end
+      end)
+    else
+      print("Auto Farm desativado")
+      -- Lógica para parar o Auto Farm, se necessário
+    end
+  end,
+  BackgroundColor3 = Color3.fromRGB(90, 90, 90), -- Cor de fundo do toggle
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
 })
 
 Main:AddDropdown({
@@ -42,8 +76,11 @@ Main:AddDropdown({
   Default = "",
   Flag = "Mododeataque",
   Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
     PlayerId = Value
-  end
+    print("Modo de ataque selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
 })
 
 Main:AddSlider({
@@ -52,10 +89,10 @@ Main:AddSlider({
   Max = 1000,
   Default = 100,
   Callback = function(value)
-    
-    
-    
-  end
+    -- Adicione a lógica para o slider
+    print("Valor do slider: " .. value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do slider
 })
 
 Main:AddToggle({
@@ -64,8 +101,12 @@ Main:AddToggle({
   Flag = "Nada",
   Default = false,
   Callback = function(Value)
-    
-    
-    
-  end
+    -- Adicione a lógica para o toggle
+    if Value then
+      print("Ativa nada ativado")
+    else
+      print("Ativa nada desativado")
+    end
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
 })
