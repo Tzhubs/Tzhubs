@@ -729,3 +729,5 @@ Main:AddToggle({
   end,
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
 })
+
+local ConfigFarm = Window:MakeTab({"ConfigFarm", "home"})
