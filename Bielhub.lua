@@ -691,9 +691,6 @@ QuestLv = 2
 NameMon = "Draco Warrior"
 CFrameQ = CFrame.new(-20000.456, 90.789, 1400.123)
 CFrameMon = CFrame.new(-20200.789, 40.123, 1450.456)
-end
-end
-end
           local player = game.Players.LocalPlayer
           local character = player.Character or player.CharacterAdded:Wait()
           local humanoid = character:FindFirstChildOfClass("Humanoid")
