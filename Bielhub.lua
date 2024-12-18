@@ -131,27 +131,11 @@ function teleportToServer(serverId)
     -- Código de teleporte do jogo vai aqui
 end
 
--- Criar uma interface simples para inserir o ID do servidor
-local ScreenGui = Instance.new("ScreenGui")
-local TextBox = Instance.new("TextBox")
-local Button = Instance.new("TextButton")
+-- Insira o ID do servidor aqui
+local serverId = "INSIRA_O_ID_DO_SERVIDOR_AQUI"
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-TextBox.Size = UDim2.new(0, 200, 0, 50)
-TextBox.Position = UDim2.new(0.5, -100, 0.5, -25)
-TextBox.PlaceholderText = "Insira o ID do servidor"
-TextBox.Parent = ScreenGui
-
-Button.Size = UDim2.new(0, 200, 0, 50)
-Button.Position = UDim2.new(0.5, -100, 0.5, 50)
-Button.Text = "Teleportar"
-Button.Parent = ScreenGui
-
-Button.MouseButton1Click:Connect(function()
-    local serverId = TextBox.Text
-    teleportToServer(serverId)
-end)
+-- Teleportar para o servidor especificado
+teleportToServer(serverId)
 
 
 local ConfigFarm = Window:MakeTab({"Esp", "Esp"})
