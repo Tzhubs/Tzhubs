@@ -1,166 +1,116 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window
+-- Carregar a biblioteca Kavo UI
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local function createWindow()
-    Window = OrionLib:MakeWindow({
-        Name = "BS HUB",
-        SubTitle = "discord.gg/bielscript",
-        HidePremium = false,
-        SaveConfig = true,
-        ConfigFolder = "OrionTest",
-        IntroText = "Bem-vindo ao BS HUB",
-        Theme = {
-            MainColor = Color3.fromRGB(255, 0, 0),
-            AccentColor = Color3.fromRGB(255, 0, 0),
-            BackgroundColor = Color3.fromRGB(30, 30, 30),
-            BorderColor = Color3.fromRGB(255, 0, 0)
-        }
-    })
+-- Criar a janela principal da interface com o tema vermelho
+local Window = Library.CreateLib("BielHub | version 3.0", "RedTheme")
 
-    -- Main Farming
-    local MainFarmingTab = Window:MakeTab({
-        Name = "Main Farming",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
+-- Adicionar um botão para minimizar/maximizar a interface
+local MinimizeButton = Instance.new("TextButton")
+MinimizeButton.Size = UDim2.new(0, 100, 0, 50)
+MinimizeButton.Position = UDim2.new(0, 10, 0, 10)
+MinimizeButton.Text = "Minimizar"
+MinimizeButton.Parent = Window
 
-    MainFarmingTab:AddButton({
-        Name = "Auto farm level",
-        Callback = function()
-            print("Farming iniciado!")
-            -- Adicione aqui a função que você deseja executar
-        end    
-    })
-
-    MainFarmingTab:AddButton({
-        Name = "Fast attack",
-        Callback = function()
-            print("Fast attack on")
-            -- Adicione aqui a função que você deseja executar
-        end    
-    })
-    
-    MainFarmingTab:AddDropdown({
-        Name = "Select Attack Type",
-        Default = "1",
-        Options = {"Normal Attack", "Fast attack", "Super Fas Attack"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-    
-    Name = "Farm boss"
-    
-    MainFarmingTab:AddDropdown({
-        Name = "Sea 1 Select boss",
-        Default = "1",
-        Options = {"Vice Admiral", "Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Saber Expert", "Warden", "Chief Warden", "Swan", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Ice Admiral", "GreyBeard"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-
-MainFarmingTab:AddDropdown({
-        Name = "Sea 2 Select Boss",
-        Default = "1",
-        Options = {"Diamont", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Dark Beard", "Cursed Captain", "Order"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-    
-    MainFarmingTab:AddDropdown({
-        Name = "Sea 3 Select Boss",
-        Default = "1",
-        Options = {"Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Cake queen", "Longma", "Soul Reaper", "Rip_Indra True Form"},
-        Callback = function(selected)
-            print("Você selecionou: " .. selected)
-            -- Adicione aqui a função que você deseja executar com base na seleção
-        end    
-    })
-
-    -- SubFarming
-    local SubFarmingTab = Window:MakeTab({
-        Name = "SubFarming",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- Stats
-    local StatsTab = Window:MakeTab({
-        Name = "Stats",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- Frutas
-    local FrutasTab = Window:MakeTab({
-        Name = "Frutas",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- Raids
-    local RaidsTab = Window:MakeTab({
-        Name = "Raids",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- ESP
-    local ESPTab = Window:MakeTab({
-        Name = "ESP",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- Configurações
-    local ConfigTab = Window:MakeTab({
-        Name = "Configurações",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- Webhook Teleport
-    local WebhookTeleportTab = Window:MakeTab({
-        Name = "Webhook Teleport",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-end
-
-createWindow()
-
--- Close UI
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 50, 0, 50)
-ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=1138061876" -- Verifique o ID da imagem
-
-UICorner.CornerRadius = UDim.new(0, 10) -- Define as bordas quadradas com pontas arredondadas
-UICorner.Parent = ImageButton
-
-ImageButton.MouseButton1Down:connect(function()
-    if Window then
-        Window:Destroy()
-        Window = nil
-    else
-        createWindow()
-        OrionLib:Init()
-    end
+MinimizeButton.MouseButton1Click:Connect(function()
+    Library:ToggleUI()
+    MinimizeButton.Text = MinimizeButton.Text == "Minimizar" and "Maximizar" or "Minimizar"
 end)
 
-OrionLib:Init()
+-- Função para tornar a interface móvel
+local function makeDraggable(frame)
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = frame.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
+        end
+    end)
+end
+
+-- Criar um frame invisível para arrastar
+local dragFrame = Instance.new("Frame")
+dragFrame.Size = UDim2.new(1, 0, 0, 50) -- Ajuste o tamanho conforme necessário
+dragFrame.BackgroundTransparency = 1
+dragFrame.Parent = Window -- Adicione o frame à janela principal
+
+-- Tornar o frame invisível móvel
+makeDraggable(dragFrame)
+
+-- Adicionar abas à janela
+local MainFarmingTab = Window:NewTab("Main farming")
+local ConfigFarmTab = Window:NewTab("ConfigFarm")
+local StatsTab = Window:NewTab("Stats")
+local TeleportTab = Window:NewTab("Teleport")
+local FruitsTab = Window:NewTab("Fruits")
+local RaidsTab = Window:NewTab("Raids")
+local JobIdTab = Window:NewTab("JobId")
+local SettingsTab = Window:NewTab("Settings")
+
+-- Adicionar seções e botões a cada aba
+local MainFarmingSection = MainFarmingTab:NewSection("Minha Seção")
+MainFarmingSection:NewButton("Meu Botão", "Informação do Botão", function()
+    print("Botão clicado na aba Main farming!")
+end)
+
+local ConfigFarmSection = ConfigFarmTab:NewSection("Configurações de Farm")
+ConfigFarmSection:NewButton("Configurar", "Configurações de Farm", function()
+    print("Botão clicado na aba ConfigFarm!")
+end)
+
+local StatsSection = StatsTab:NewSection("Estatísticas")
+StatsSection:NewButton("Ver Estatísticas", "Informação de Estatísticas", function()
+    print("Botão clicado na aba Stats!")
+end)
+
+local TeleportSection = TeleportTab:NewSection("Teleporte")
+TeleportSection:NewButton("Teleporte", "Informação de Teleporte", function()
+    print("Botão clicado na aba Teleport!")
+end)
+
+local FruitsSection = FruitsTab:NewSection("Frutas")
+FruitsSection:NewButton("Ver Frutas", "Informação de Frutas", function()
+    print("Botão clicado na aba Fruits!")
+end)
+
+local RaidsSection = RaidsTab:NewSection("Raides")
+RaidsSection:NewButton("Iniciar Raide", "Informação de Raides", function()
+    print("Botão clicado na aba Raids!")
+end)
+
+local JobIdSection = JobIdTab:NewSection("ID do Trabalho")
+JobIdSection:NewButton("Ver ID", "Informação de ID do Trabalho", function()
+    print("Botão clicado na aba JobId!")
+end)
+
+local SettingsSection = SettingsTab:NewSection("Configurações")
+SettingsSection:NewButton("Configurações Gerais", "Informação de Configurações", function()
+    print("Botão clicado na aba Settings!")
+end)
