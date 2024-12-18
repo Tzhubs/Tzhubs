@@ -111,6 +111,8 @@ Main:AddToggle({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
 })
 
+Main:AddSection({"Só os básicos"})
+
 local ConfigFarm = Window:MakeTab({"Config Farm", "Config"})
 
 local Stats Player= Window:MakeTab({"Stats Player", "Stats Player"})
