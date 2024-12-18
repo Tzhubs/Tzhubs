@@ -37,7 +37,7 @@ Main:AddButton({
 local autoFarmActive = false
 
 Main:AddToggle({
-  Name = "Auto Farm level",
+  Name = "Auto Farm Level",
   Description = "",
   Flag = "AtivaFarmLevel",
   Default = false,
@@ -70,6 +70,36 @@ Main:AddToggle({
 })
 
 Main:AddDropdown({
+  Name = "Select Farm Mode",
+  Description = "",
+  Options = {"Melee", "Sword", "Blox fruit"},
+  Default = "",
+  Flag = "Mododefarm",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Modo de farm selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+Main:AddToggle({
+  Name = "Start Fast Attack",
+  Description = "",
+  Flag = "ActivateClickQuick",
+  Default = false,
+  Callback = function(Value)
+    -- Adicione a lógica para o toggle
+    if Value then
+      print("Start Fast Attack ativado")
+    else
+      print("Start Fast Attack desativado")
+    end
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
+})
+
+Main:AddDropdown({
   Name = "Attack Mode",
   Description = "",
   Options = {"Normal Attack", "Fast attack", "Super Fast Attack"},
@@ -83,47 +113,137 @@ Main:AddDropdown({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
 })
 
-Main:AddSlider({
-  Name = "Num sei",
-  Min = 0,
-  Max = 1000,
-  Default = 100,
-  Callback = function(value)
-    -- Adicione a lógica para o slider
-    print("Valor do slider: " .. value)
-  end,
-  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do slider
-})
+Main:AddSection({"Farm boss"})
 
 Main:AddToggle({
-  Name = "Ativa nada",
+  Name = "Start Farm Boss",
   Description = "",
-  Flag = "Nada",
+  Flag = "FarmBoss",
   Default = false,
   Callback = function(Value)
     -- Adicione a lógica para o toggle
     if Value then
-      print("Ativa nada ativado")
+      print("Farm Boss ativado")
     else
-      print("Ativa nada desativado")
+      print("Farm Boss desativado")
     end
   end,
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
 })
 
-Main:AddSection({"Só os básicos"})
+Main:AddDropdown({
+  Name = "Sea 1 Select Boss",
+  Description = "",
+  Options = {"Vice Admiral", "Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Saber Expert", "Warden", "Chief Warden", "Swan", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Ice Admiral", "GreyBeard"},
+  Default = "",
+  Flag = "Select Boss",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Boss selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+Main:AddDropdown({
+  Name = "Sea 2 Select Boss",
+  Description = "",
+  Options = {"Diamont", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Dark Beard", "Cursed Captain", "Order"},
+  Default = "",
+  Flag = "Select Boss",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Boss selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+Main:AddDropdown({
+  Name = "Sea 3 Select Boss",
+  Description = "",
+  Options = {"Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Cake queen", "Longma", "Soul Reaper", "Rip_Indra True Form"},
+  Default = "",
+  Flag = "Select boss",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Boss selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+Main:AddSection({"Farm Material"})
+
+Main:AddToggle({
+  Name = "Start Farm Material",
+  Description = "",
+  Flag = "FarmMaterial",
+  Default = false,
+  Callback = function(Value)
+    -- Adicione a lógica para o toggle
+    if Value then
+      print("Farm Material ativado")
+    else
+      print("Farm Material desativado")
+    end
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
+})
+
+Main:AddDropdown({
+  Name = "1 Sea Select Farm Material",
+  Description = "",
+  Options = {"Scrap Metal","Leather","Angel Wings","Magma Ore","Fish Tail"},
+  Default = "",
+  Flag = "Select Material",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Material selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+Main:AddDropdown({
+  Name = "2 Sea Select Farm Material",
+  Description = "",
+  Options = {"Scrap Metal","Leather","Radioactive Material","Mystic Droplet","Magma Ore","Vampire Fang"},
+  Default = "",
+  Flag = "Select Material",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Material selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
+
+Main:AddDropdown({
+  Name = "3 Sea Select Farm Material",
+  Description = "",
+  Options = {"Scrap Metal","Leather","Demonic Wisp","Conjured Cocoa","Dragon Scale","Gunpowder","Fish Tail","Mini Tusk"},
+  Default = "",
+  Flag = "Select Material",
+  Callback = function(Value)
+    -- Certifique-se de que PlayerId é a variável correta
+    PlayerId = Value
+    print("Material selecionado: " .. Value)
+  end,
+  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
+})
 
 local ConfigFarm = Window:MakeTab({"Config Farm", "Config"})
 
 local Stats Player= Window:MakeTab({"Stats Player", "Stats Player"})
 
-local ConfigFarm = Window:MakeTab({"Teleport", "Teleport"})
+local Teleport = Window:MakeTab({"Teleport", "Teleport"})
 
-local ConfigFarm = Window:MakeTab({"Fruit", "Fruit"})
+local Fruits = Window:MakeTab({"Fruit", "Fruit"})
 
-local ConfigFarm = Window:MakeTab({"Raid", "Raid"})
+local Raid = Window:MakeTab({"Raid", "Raid"})
 
-local ConfigFarm = Window:MakeTab({"JobId Teleport", "Teleport"})
+local JobId Teleport = Window:MakeTab({"JobId Teleport", "Teleport"})
 
 -- Função para teleportar para um servidor específico
 function teleportToServer(serverId)
