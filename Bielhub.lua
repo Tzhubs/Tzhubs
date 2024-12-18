@@ -222,8 +222,6 @@ Main:AddDropdown({
 local Stats Player= Window:MakeTab({"Stats", "Stats"})
 
 local playerStats = {}
-
--- Tabela para armazenar o status dos eventos
 local eventStatus = {
     mirageIsland = false,
     kitsuneIsland = false,
