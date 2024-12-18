@@ -10,12 +10,25 @@ Window:AddMinimizeButton({
 
 local Main = Window:MakeTab({"Main", "home"})
 
-Main:AddSection({"Só os básicos"})
+Main:AddSection({"Tab Farming"})
 
 Main:AddButton({
-  Name = "Auto Farm Level",
-  Description = "",
+  Name = "BIEL HUB DISCORD SERVER",
+  Description = "discord.gg/bielscripts",
   Callback = function()
+  IntroText = "Bem-vindo ao Biel Hub",
+  setclipboard("Discord.gg/bielscripts")
+    
+    
+  end
+})
+
+Main:AddToggle({
+  Name = "Auto Farm level",
+  Description = "",
+  Flag = "AtivaFarmLevel",
+  Default = false,
+  Callback = function(Value)
     
     
     
