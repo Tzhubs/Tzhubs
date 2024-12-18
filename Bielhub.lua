@@ -221,9 +221,6 @@ Main:AddDropdown({
 
 local Stats Player= Window:MakeTab({"Stats", "Stats"})
 
--- Servidor de Estatísticas para Blox Fruits
-
--- Tabela para armazenar as estatísticas dos jogadores
 local playerStats = {}
 
 -- Tabela para armazenar o status dos eventos
@@ -290,7 +287,6 @@ local events = getEventStatus()
 print("Estatísticas do Jogador1:", stats)
 print("Status dos eventos:", events)
 
-
 local Teleport = Window:MakeTab({"Teleport", "Teleport"})
 
 local Fruits = Window:MakeTab({"Fruit", "Fruit"})
@@ -301,7 +297,6 @@ local Eventos Do Mar = Window:MakeTab({"EventosDoMar", "EventosDoMar"})
 
 local JobId Teleport = Window:MakeTab({"JobId Teleport", "Teleport"})
 
--- Função para teleportar para um servidor específico
 function teleportToServer(serverId)
     -- Aqui você colocaria o código específico do jogo para teleportar
     -- Exemplo fictício:
@@ -314,6 +309,5 @@ local serverId = "INSIRA_O_ID_DO_SERVIDOR_AQUI"
 
 -- Teleportar para o servidor especificado
 teleportToServer(serverId)
-
 
 local ConfigFarm = Window:MakeTab({"Esp", "Esp"})
