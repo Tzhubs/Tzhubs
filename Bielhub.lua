@@ -227,8 +227,8 @@ local Fruits = Window:MakeTab({"Fruit", "Fruit"})
 
 local Raid = Window:MakeTab({"Raid", "Raid"})
 
-local Eventos Do Mar = Window:MakeTab({"EventosDoMar", "EventosDoMar"})
+local EventosDoMar = Window:MakeTab({"EventosDoMar", "EventosDoMar"})
 
-local JobId Teleport = Window:MakeTab({"JobId Teleport", "Teleport"})
+local JobIdTeleport = Window:MakeTab({"JobId Teleport", "Teleport"})
 
 local ConfigFarm = Window:MakeTab({"Esp", "Esp"})
