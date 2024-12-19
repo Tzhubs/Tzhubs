@@ -309,7 +309,7 @@ elseif Third_Sea then
        }
     end
 
-local DropdownIsland = Main:AddDropdown("DropdownIsland",{
+Main:AddDropdown("DropdownIsland"({
   Name = "Dropdown",
   Description = "",
   Values = IslandList,
@@ -443,19 +443,5 @@ local Raid = Window:MakeTab({"Raid", "Raid"})
 local Eventos Do Mar = Window:MakeTab({"EventosDoMar", "EventosDoMar"})
 
 local JobId Teleport = Window:MakeTab({"JobId Teleport", "Teleport"})
-
-Main:AddToggle({
-function teleportToServer(serverId)
-    -- Aqui você colocaria o código específico do jogo para teleportar
-    -- Exemplo fictício:
-    print("Teleportando para o servidor com ID: " .. serverId)
-    -- Código de teleporte do jogo vai aqui
-end
-
--- Insira o ID do servidor aqui
-local serverId = "INSIRA_O_ID_DO_SERVIDOR_AQUI"
-
--- Teleportar para o servidor especificado
-teleportToServer(serverId)
 
 local ConfigFarm = Window:MakeTab({"Esp", "Esp"})
