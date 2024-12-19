@@ -217,7 +217,7 @@ Main:AddDropdown({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
 })
 
-local Stats Player= Window:MakeTab({"Stats", "Stats"})
+local StatsPlayer= Window:MakeTab({"Stats", "Stats"})
 
 local Teleport = Window:MakeTab({"Teleport", "Teleport"})
 
