@@ -189,7 +189,7 @@ Main:AddDropdown({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
 })
 
-local ConfigFarm = Window:MakeTab({"Config Farm", "Config"})
+local Config Farm= Window:MakeTab({"Config Farm", "ConfigFarm"})
 
 Main:AddSlider({
   Name = "Attack Speed ",
@@ -217,18 +217,14 @@ Main:AddDropdown({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
 })
 
-local StatsPlayer= Window:MakeTab({"Stats", "Stats"})
+local Stats Player= Window:MakeTab({"Stats Player", "StatsPlayer"})
 
-local Teleport = Window:MakeTab({"Teleport", "Teleport"})
+local Raids= Window:MakeTab({"Raids", "Raids"})
 
-local PvP = Window:MakeTab({"PvP", "PvP"})
+local Fruits= Window:MakeTab({"Fruits", "Fruits"})
 
-local Fruits = Window:MakeTab({"Fruit", "Fruit"})
+local Teleport= Window:MakeTab({"Teleport", "Teleport"})
 
-local Raid = Window:MakeTab({"Raid", "Raid"})
+local PvP= Window:MakeTab({"PvP", "PvP"})
 
-local EventosDoMar = Window:MakeTab({"EventosDoMar", "EventosDoMar"})
-
-local JobIdTeleport = Window:MakeTab({"JobId Teleport", "Teleport"})
-
-local ConfigFarm = Window:MakeTab({"Esp", "Esp"})
+local EventosDoMar= Window:MakeTab({"Eventos Do Mar", "EventosDoMar"})
