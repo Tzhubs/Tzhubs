@@ -5,7 +5,7 @@ local Window = redzlib:MakeWindow({
   "by  luakingg2",
   "BloxFruit.json",
   BackgroundColor = Color3.fromRGB(255,255,255), -- Cor de fundo da janela
-  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas da janela
+  BorderColor3 = Color3.fromRGB(255, 255, 255) -- Cor das bordas da janela
 })
 
 Window:AddMinimizeButton({
@@ -223,29 +223,7 @@ local Stats Player= Window:MakeTab({"Stats", "Stats"})
 
 local Teleport = Window:MakeTab({"Teleport", "Teleport"})
 
-Main:AddButton({
-  Name = "First Sea",
-  Description = "Sea 1",
-  Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
-    end,
-})
-
-Main:AddButton({
-  Name = "Second Sea",
-  Description = "Sea 2",
-  Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
-    end,
-})
-
-Main:AddButton({
-    Name = "Third Sea",
-    Description = "Sea 3",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
-    end,
-})
+local PvP = Window:MakeTab({"PvP", "PvP"})
 
 local Fruits = Window:MakeTab({"Fruit", "Fruit"})
 
