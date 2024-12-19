@@ -34,8 +34,6 @@ Main:AddButton({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do botão
 })
 
-local autoFarmActive = false
-
 Main:AddToggle({
   Name = "Auto Farm Level",
   Description = "",
