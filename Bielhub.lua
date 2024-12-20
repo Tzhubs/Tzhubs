@@ -14,7 +14,7 @@ Window:AddMinimizeButton({
     Size = UDim2.fromOffset(60, 60),
     BackgroundTransparency = 0,
     BackgroundColor3 = Color3.fromRGB(50, 50, 50), -- Cor de fundo do botão
-    BorderColor3 = Color3.fromRGB(255, 255, 255) -- Cor das bordas do botão
+    BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do botão
   },
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
@@ -189,7 +189,7 @@ Main:AddDropdown({
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
 })
 
-local Config Farm= Window:MakeTab({"Config Farm", "ConfigFarm"})
+local ConfigFarm= Window:MakeTab({"Config Farm", "ConfigFarm"})
 
 Main:AddSlider({
   Name = "Attack Speed ",
@@ -265,35 +265,8 @@ Main:AddToggle({
 
 local Fruits= Window:MakeTab({"Fruits", "Fruits"})
 
-Main:AddToggle({
-  Name = "Buy Fruit Shop",
-  Description = "",
-  Flag = "BuyFruit",
-  Default = "",
-  Callback = function()
-      if Value then
-      print("Blox Fruta Compradoo")
-    end
-  end,
-  BorderColor3 = Color3.fromRGB(255, 255, 255) -- Cor das bordas do toggle
-})
-
-Main:AddDropdown({
-  Name = "Select Buy Fruit",
-  Description = "",
-  Options = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","Buddha","Sand","Phoenix","Dough","Dragon","Sound","Rockt","Control","Bomb","Leopard","Gás"},
-  Default = "",
-  Flag = "Modebuyfruits",
-  Callback = function(Value)
-    -- Certifique-se de que PlayerId é a variável correta
-    PlayerId = Value
-    print("Blox Fruta selecionado: " .. Value)
-  end,
-  BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do dropdown
-})
-
 local Teleport= Window:MakeTab({"Teleport", "Teleport"})
 
-local PvP= Window:MakeTab({"PvP", "PvP"})
+local Combat= Window:MakeTab({"Combat", "Combat"})
 
 local EventosDoMar= Window:MakeTab({"Eventos Do Mar", "EventosDoMar"})
