@@ -191,6 +191,8 @@ Main:AddDropdown({
 
 local ConfigFarm= Window:MakeTab({"Config Farm", "ConfigFarm"})
 
+Main:AddSection({"Config Farms"})
+
 Main:AddSlider({
   Name = "Attack Speed ",
   Min = 0.1,
@@ -221,16 +223,18 @@ local StatsPlayer= Window:MakeTab({"Stats Player", "StatsPlayer"})
 
 local Raids= Window:MakeTab({"Raids", "Raids"})
 
+Main:AddSection({"Raid"})
+
 Main:AddToggle({
   Name = "Start Raid",
   Description = "",
   Flag = "IniciarRaid"
-  Default = "",
+  Default = false,
   Callback = function()
       if Value then
-      print("Farm Material ativado")
+      print("Raid ativado")
     else
-      print("Farm Material desativado")
+      print("Raid desativado")
     end
   end,
   BorderColor3 = Color3.fromRGB(255, 0, 0) -- Cor das bordas do toggle
@@ -241,7 +245,7 @@ Main:AddDropdown({
   Description = "",
   Options = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","Buddha","Sand","Phoenix","Dough"},
   Default = "",
-  Flag = "MododeRaid",
+  Flag = "ModoDeRaid",
   Callback = function(Value)
     -- Certifique-se de que PlayerId é a variável correta
     PlayerId = Value
@@ -254,7 +258,7 @@ Main:AddToggle({
   Name = "Buy Chip Raid",
   Description = "",
   Flag = "BuyChip"
-  Default = "",
+  Default = false,
   Callback = function()
       if Value then
       print("Chip Raid Comprado")
@@ -270,3 +274,5 @@ local Teleport= Window:MakeTab({"Teleport", "Teleport"})
 local Combat= Window:MakeTab({"Combat", "Combat"})
 
 local EventosDoMar= Window:MakeTab({"Eventos Do Mar", "EventosDoMar"})
+
+local Esp= Window:MakeTab({"Esp", "Esp"})
